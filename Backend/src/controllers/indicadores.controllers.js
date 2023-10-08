@@ -51,7 +51,9 @@ const updateData = async (req, res) => {
         const db = await connect();
         const id = req.params.id;
         const data = req.body;
-        data.area = new ObjectId(data.area);
+        if (data.area) {
+            data.area = new ObjectId(data.area);
+        }
         await db.collection("indicadores").findOneAndUpdate({_id: new ObjectId(id)}, { $set: data});
         res.send(data);
     } catch (error) {
