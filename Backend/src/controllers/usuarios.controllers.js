@@ -56,6 +56,9 @@ const updateData = async (req, res) =>{
         const db = await connect();
         const { id } = req.params;
         const data = req.body;
+        if (data.cargo) {
+            data.cargo = new ObjectId(data.cargo);
+        }
         await db.collection('usuarios').findOneAndUpdate({ _id: new ObjectId(id) }, { $set: data });
         res.send(data);
     } catch (error) {
