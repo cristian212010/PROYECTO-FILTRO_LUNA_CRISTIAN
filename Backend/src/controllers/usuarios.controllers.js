@@ -54,9 +54,8 @@ const deleteData = async (req, res) => {
 const updateData = async (req, res) =>{
     try {
         const db = await connect();
+        const { id } = req.params;
         const data = req.body;
-        data.cargo = new ObjectId(data.cargo);
-        data.estado = true;
         await db.collection('usuarios').findOneAndUpdate({ _id: new ObjectId(id) }, { $set: data });
         res.send(data);
     } catch (error) {
