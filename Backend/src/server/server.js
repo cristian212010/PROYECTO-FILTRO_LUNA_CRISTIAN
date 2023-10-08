@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import indicadoresRoutes from '../routes/indicadores.routes.js'
+import usuariosRoutes from '../routes/usuarios.routes.js';
 
 class Server{
 
@@ -24,7 +25,8 @@ class Server{
     }
 
     routes(){
-        this.app.use(this.paths.indicadores, indicadoresRoutes)
+        this.app.use(this.paths.indicadores, indicadoresRoutes);
+        this.app.use(this.paths.usuarios, usuariosRoutes);
     }
 
     listen(){
