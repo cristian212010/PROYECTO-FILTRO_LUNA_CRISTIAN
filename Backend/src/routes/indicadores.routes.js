@@ -1,7 +1,7 @@
 import {Router} from "express"
 import {check} from "express-validator"
 import { deleteData, getData, insertData, updateData } from "../controllers/indicadores.controllers.js";
-
+import validateDocuments from "../middlewares/validate.documents.js";
 
 const router = Router();
 
@@ -17,10 +17,12 @@ router.post('/insert',[
     check("frecuencia", "Frecuencia no valida").not().isEmpty(),
     check("cumplimiento", "Cumplimiento no valida").not().isEmpty(),
     check("area", "Area id no valido").isMongoId(),
+    validateDocuments
 ], insertData);
 
 router.delete("/delete/:id",[
-    check("id", "id no valido").isMongoId()
+    check("id", "id no valido").isMongoId(),
+    validateDocuments
 , deleteData])
 
 router.put("/update/:id",[
@@ -34,6 +36,7 @@ router.put("/update/:id",[
     check("frecuencia", "Frecuencia no valida").not().isEmpty(),
     check("cumplimiento", "Cumplimiento no valida").not().isEmpty(),
     check("area", "Area id no valido").isMongoId(),
+    validateDocuments
 ],updateData);
 
 export default router

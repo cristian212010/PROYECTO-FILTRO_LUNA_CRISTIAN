@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 import { getData, insertData, deleteData, updateData } from '../controllers/usuarios.controllers.js';
+import validateDocuments from '../middlewares/validate.documents.js';
 
 const router = Router();
 
@@ -12,10 +13,12 @@ router.post('/insert',[
     check('usuario', 'Usuario no valido').not().isEmpty(),
     check('password', 'Password').not().isEmpty(),
     check('cargo', 'Cargo no valido').isMongoId(),
+    validateDocuments
 ], insertData);
 
 router.delete('/delete/:id',[
     check('id', 'No es un ID válido').isMongoId(),
+    validateDocuments
 ], deleteData);
 
 router.put('/update/:id', [
@@ -25,6 +28,7 @@ router.put('/update/:id', [
     check('usuario', 'Usuario no valido').not().isEmpty(),
     check('password', 'Password').not().isEmpty(),
     check('cargo', 'Cargo no valido').isMongoId(),
+    validateDocuments
 ], updateData);
 
 export default router;
