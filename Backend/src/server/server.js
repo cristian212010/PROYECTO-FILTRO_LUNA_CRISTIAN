@@ -4,6 +4,8 @@ import indicadoresRoutes from '../routes/indicadores.routes.js'
 import usuariosRoutes from '../routes/usuarios.routes.js';
 import loginRoutes from '../routes/login.routes.js';
 import reportesRoutes from '../routes/reportes.routes.js';
+import avataresRoutes from '../routes/avatares.routes.js';
+import fileUpload from 'express-fileupload';
 
 class Server{
 
@@ -15,7 +17,8 @@ class Server{
             usuarios: '/usuarios',
             reportes: '/reportes',
             areas : '/areas',
-            cargos : '/cargos'
+            cargos : '/cargos',
+            avatares : '/avatares'
         }
         this.middleware();
         this.routes();
@@ -24,6 +27,10 @@ class Server{
     middleware(){
         this.app.use(express.json());
         this.app.use(cors());
+        this.app.use(fileUpload({
+            useTempFiles: true,
+            tempFileDir: '/tmp/'
+        }));
     }
 
     routes(){
@@ -31,6 +38,7 @@ class Server{
         this.app.use(this.paths.usuarios, usuariosRoutes);
         this.app.use(this.paths.usuarios, loginRoutes);
         this.app.use(this.paths.reportes, reportesRoutes);
+        this.app.use(this.paths.avatares, avataresRoutes);
     }
 
     listen(){

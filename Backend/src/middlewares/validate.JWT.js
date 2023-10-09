@@ -18,20 +18,21 @@ const validateToken = async (req, res, next) => {
         const db = await connect();
         const { uid } = jwt.verify(token, process.env.SECRET_OR_PRIVATE_KEY);
         const usuario = await db.collection('usuarios').find({ _id: new ObjectId(uid) }).toArray();
+        const user = usuario[0];
 
-        if( !usuario ) {
+        if( !user.usuario ) {
             return res.status(401).json({
                 msg: 'Token no válido - usuario no existe DB'
             })
         } 
 
-        if ( !usuario.estado ) {
+        if ( !user.estado ) {
             return res.status(401).json({
                 msg: 'Token no válido - usuario con estado: false'
             })
         } 
 
-        req.usuario = usuario; 
+        req.usuario = user; 
         next();
     } catch (error) {
         return res.status(401).json({
