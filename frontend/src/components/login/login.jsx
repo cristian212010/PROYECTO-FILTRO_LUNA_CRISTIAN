@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { useHistory } from 'react-router-dom';
 const Login = () => {
+    const history = useHistory();
   const [formData, setFormData] = useState({
     usuario: '',
     password: '',
@@ -26,6 +27,7 @@ const Login = () => {
       localStorage.setItem('token', token);
 
       console.log('Inicio de sesión exitoso', response.data);
+      history.push('/home');
     } catch (error) {
       console.error(error);
       setMensajeError('Usuario o contraseña incorrectos');
