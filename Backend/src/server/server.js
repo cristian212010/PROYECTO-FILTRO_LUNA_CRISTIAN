@@ -5,6 +5,7 @@ import usuariosRoutes from '../routes/usuarios.routes.js';
 import loginRoutes from '../routes/login.routes.js';
 import reportesRoutes from '../routes/reportes.routes.js';
 import areasRoutes from '../routes/areas.routes.js'
+import cargosRoutes from '../routes/cargos.routes.js';
 
 class Server{
 
@@ -33,6 +34,7 @@ class Server{
         this.app.use(this.paths.usuarios, loginRoutes);
         this.app.use(this.paths.reportes, reportesRoutes);
         this.app.use(this.paths.areas, areasRoutes)
+        this.app.use(this.paths.cargos, cargosRoutes);
     }
 
     listen(){
