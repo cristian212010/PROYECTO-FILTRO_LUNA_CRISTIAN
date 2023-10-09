@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory, Link } from 'react-router-dom'; 
 
 const Login = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     usuario: '',
     password: '',
@@ -19,16 +21,22 @@ const Login = () => {
 
   const submitLogin = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:6996/usuarios/login', formData);
       const token = response.data.token;
       localStorage.setItem('token', token);
-
+  
       console.log('Inicio de sesión exitoso', response.data);
+      history.push('/home');
     } catch (error) {
       console.error(error);
-      setMensajeError('Usuario o contraseña incorrectos');
+
+      if (error.response.status === 400) {
+        setMensajeError('Usuario o contraseña incorrectos');
+      } else {
+        setMensajeError('Error en el servidor, por favor, contacte al servicio técnico');
+      }
     }
   };
 
@@ -59,6 +67,8 @@ const Login = () => {
         </div>
         <button type="submit">Iniciar Sesión</button>
       </form>
+      
+      <p>¿No tienes cuenta? <Link to="/register">Crear una</Link></p>
     </div>
   );
 };
