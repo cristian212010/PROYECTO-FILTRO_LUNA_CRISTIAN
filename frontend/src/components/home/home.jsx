@@ -1,7 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
+<<<<<<< HEAD
 const Home = ()=>{
     <p>Hola</p>
 }
+=======
+const Home = () => {
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  };
+>>>>>>> 5747eeb (fix: :lock: Login authentication)
 
-export default Home
+  return (
+    <div>
+      <h2>Inicio</h2>
+      <p>Bienvenido al inicio.</p>
+      <button onClick={logout}>Cerrar Sesión</button>
+    </div>
+  );
+};
+
+export default Home;
