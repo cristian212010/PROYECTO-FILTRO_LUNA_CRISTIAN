@@ -5,7 +5,6 @@ const Home = () => {
     localStorage.removeItem('token');
     window.location.href = '/login';
   };
-
   return (
     <div>
       <h2>  Inicio</h2>
