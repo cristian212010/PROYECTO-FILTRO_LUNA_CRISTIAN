@@ -1,5 +1,6 @@
 import connect from "../database/conection.js";
 import { ObjectId } from "mongodb";
+import bcryptjs from 'bcryptjs';
 
 const getData = async (req, res) =>{
     try {
@@ -30,6 +31,8 @@ const insertData = async (req, res) =>{
         data.cargo = new ObjectId(data.cargo);
         data.estado = true;
         data.avatar = 'default.jpg';
+        const salt = bcryptjs.genSaltSync();
+        data.password = bcryptjs.hashSync(data.password, salt);
         const response = await db.collection('usuarios').insertOne(data);
         res.json({
             response,

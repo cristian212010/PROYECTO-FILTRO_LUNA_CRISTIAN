@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import indicadoresRoutes from '../routes/indicadores.routes.js'
 import usuariosRoutes from '../routes/usuarios.routes.js';
+import loginRoutes from '../routes/login.routes.js';
 
 class Server{
 
@@ -13,7 +14,7 @@ class Server{
             usuarios: '/usuarios',
             reportes: '/reportes',
             areas : '/areas',
-            cargos : '/cargos',
+            cargos : '/cargos'
         }
         this.middleware();
         this.routes();
@@ -27,6 +28,7 @@ class Server{
     routes(){
         this.app.use(this.paths.indicadores, indicadoresRoutes);
         this.app.use(this.paths.usuarios, usuariosRoutes);
+        this.app.use(this.paths.usuarios, loginRoutes);
     }
 
     listen(){
