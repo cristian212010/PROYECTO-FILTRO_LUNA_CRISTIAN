@@ -21,17 +21,22 @@ const Login = () => {
 
   const submitLogin = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await axios.post('http://localhost:6996/usuarios/login', formData);
       const token = response.data.token;
       localStorage.setItem('token', token);
-
+  
       console.log('Inicio de sesión exitoso', response.data);
       history.push('/home');
     } catch (error) {
       console.error(error);
-      setMensajeError('Usuario o contraseña incorrectos');
+
+      if (error.response.status === 400) {
+        setMensajeError('Usuario o contraseña incorrectos');
+      } else {
+        setMensajeError('Error en el servidor, por favor, contacte al servicio técnico');
+      }
     }
   };
 

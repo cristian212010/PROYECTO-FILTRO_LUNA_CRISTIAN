@@ -10,25 +10,25 @@ const login = async (req, res=response) => {
         const user = await db.collection('usuarios').find({usuario}).toArray();
         const usr = user[0]
 
-        if (!usr.usuario){
+        if (!usr) {
             return res.status(400).json({
-                msg:"Usuario no es correcto"
-            })
-        };
+                msg: "Usuario no es correcto"
+            });
+        }
 
         if (!usr.estado){
             return res.status(400).json({
-                msg:"Estado Inactivo"
-            })
-        };
+                msg: "Estado Inactivo"
+            });
+        }
 
         const validPassword = bcryptjs.compareSync(password, usr.password);
 
         if (!validPassword){
             return res.status(400).json({
-                msg:"Password Incorrecto"
-            })
-        };
+                msg: "Password Incorrecto"
+            });
+        }
 
         const token = await generateJWT(usr._id)
 
@@ -40,9 +40,9 @@ const login = async (req, res=response) => {
     } catch (error) {
         console.log(error);
         return res.json({
-            msg:"contacte al servicio tecnico"
+            msg: "contacte al servicio tecnico"
         });
-    };
+    }
 };
 
 export default login;

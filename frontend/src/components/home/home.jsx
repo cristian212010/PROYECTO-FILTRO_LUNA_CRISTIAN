@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Home = ()=>{
-    return(
-        <p>Hola mundo, para yedher </p>
-    )
-  
-}
+const Home = () => {
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  };
 
-export default Home
+  return (
+    <div>
+      <h2>Inicio</h2>
+      <p>Bienvenido al inicio.</p>
+      <button onClick={logout}>Cerrar Sesión</button>
+    </div>
+  );
+};
+
+export default Home;
