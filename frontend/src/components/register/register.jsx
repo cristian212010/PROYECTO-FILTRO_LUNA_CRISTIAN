@@ -141,13 +141,3 @@ const Register = () => {
     </div>
   );
 };
-
-<<<<<<< HEAD
-export default Register;
-=======
-<<<<<<< HEAD
-export default Registro;
-=======
-export default Register;
->>>>>>> 8d7f337 (fix: :bug: Fix Register/login)
->>>>>>> Front-Authentication
