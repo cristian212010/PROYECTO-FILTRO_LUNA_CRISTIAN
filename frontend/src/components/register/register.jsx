@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
- //form para registro
+
 const Registro = () => {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -8,19 +8,17 @@ const Registro = () => {
     usuario: '',
     password: '',
     cargo: '',
-    avatar: null, 
+    avatar: null,
   });
 
   const [cargos, setCargos] = useState([]);
   const [mensajeError, setMensajeError] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:6996/usuarios/getAll')
+    axios
+      .get('http://localhost:6996/cargos/getAll')
       .then((response) => {
-        const cargos = response.data.map(cargo => ({
-          id: cargo._id,
-          nombre: cargo.nombre,
-        }));
+        const cargos = response.data;
         setCargos(cargos);
       })
       .catch((error) => {
@@ -57,7 +55,6 @@ const Registro = () => {
 
     try {
       await axios.post('http://localhost:6996/usuarios/insert', data);
-
     } catch (error) {
       console.error(error);
       setMensajeError('Error al registrar al usuario');
@@ -118,9 +115,9 @@ const Registro = () => {
             required
           >
             <option value="">Seleccionar Cargo</option>
-            {cargos.map(cargo => (
-              <option key={cargo.id} value={cargo.id}>
-                {cargo.nombre}
+            {cargos.map((cargo) => (
+              <option key={cargo._id} value={cargo._id}>
+                {cargo.cargo}
               </option>
             ))}
           </select>
