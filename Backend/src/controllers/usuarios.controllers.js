@@ -28,9 +28,11 @@ const insertData = async (req, res) =>{
     try {
         const db = await connect();
         const data = req.body;
+        const fecha = new Date().toISOString();
         data.cargo = new ObjectId(data.cargo);
         data.estado = true;
-        data.avatar = 'default.jpg';
+        data.avatar = `${fecha}-default-avatar.png`;
+        console.log(data.avatar);
         const salt = bcryptjs.genSaltSync();
         data.password = bcryptjs.hashSync(data.password, salt);
         const response = await db.collection('usuarios').insertOne(data);
