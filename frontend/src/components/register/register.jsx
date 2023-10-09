@@ -8,7 +8,7 @@ const Registro = () => {
     usuario: '',
     password: '',
     cargo: '',
-    avatar: null,
+    avatar: '',
   });
 
   const [cargos, setCargos] = useState([]);
@@ -52,7 +52,7 @@ const Registro = () => {
     data.append('password', formData.password);
     data.append('cargo', formData.cargo);
     data.append('avatar', formData.avatar);
-
+    console.log(data);
     try {
       await axios.post('http://localhost:6996/usuarios/insert', data);
     } catch (error) {
@@ -125,10 +125,10 @@ const Registro = () => {
         <div>
           <label>Avatar:</label>
           <input
-            type="file"
+            type= 'text'
             name="avatar"
-            onChange={avatarChange}
-            accept="image/*"
+            value={formData.avatar}
+            onChange={change}
             required
           />
         </div>
