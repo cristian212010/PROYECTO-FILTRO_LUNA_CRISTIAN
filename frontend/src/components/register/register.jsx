@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-const Registro = () => {
+const Register = () => {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
     usuario: '',
     password: '',
     cargo: '',
-    avatar: '',
+    avatar: null,
   });
 
   const [cargos, setCargos] = useState([]);
@@ -22,12 +24,12 @@ const Registro = () => {
         setCargos(cargos);
       })
       .catch((error) => {
-        console.error(error);
+        console.error('Error al cargar la lista de cargos:', error);
         setMensajeError('Error al cargar la lista de cargos');
       });
   }, []);
 
-  const change = (event) => {
+  const inputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
@@ -43,7 +45,7 @@ const Registro = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
+  const submitRegister = async (event) => {
     event.preventDefault();
     const data = new FormData();
     data.append('nombre', formData.nombre);
@@ -52,12 +54,14 @@ const Registro = () => {
     data.append('password', formData.password);
     data.append('cargo', formData.cargo);
     data.append('avatar', formData.avatar);
-    console.log(data);
+
     try {
-      await axios.post('http://localhost:6996/usuarios/insert', data);
+      console.log('Enviando solicitud de registro con los siguientes datos:', data);
+      const response = await axios.post('http://localhost:6996/usuarios/insert', data);
+      console.log('Respuesta del servidor después de registrar:', response.data);
+      history.push('/login'); 
     } catch (error) {
-      console.error(error);
-      setMensajeError('Error al registrar al usuario');
+      console.error('Error al registrar al usuario:', error);
     }
   };
 
@@ -65,14 +69,14 @@ const Registro = () => {
     <div>
       <h2>Registro de Usuario</h2>
       {mensajeError && <p>{mensajeError}</p>}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={submitRegister}>
         <div>
           <label>Nombre:</label>
           <input
             type="text"
             name="nombre"
             value={formData.nombre}
-            onChange={change}
+            onChange={inputChange}
             required
           />
         </div>
@@ -82,7 +86,7 @@ const Registro = () => {
             type="text"
             name="apellido"
             value={formData.apellido}
-            onChange={change}
+            onChange={inputChange}
             required
           />
         </div>
@@ -92,7 +96,7 @@ const Registro = () => {
             type="text"
             name="usuario"
             value={formData.usuario}
-            onChange={change}
+            onChange={inputChange}
             required
           />
         </div>
@@ -102,7 +106,7 @@ const Registro = () => {
             type="password"
             name="password"
             value={formData.password}
-            onChange={change}
+            onChange={inputChange}
             required
           />
         </div>
@@ -111,7 +115,7 @@ const Registro = () => {
           <select
             name="cargo"
             value={formData.cargo}
-            onChange={change}
+            onChange={inputChange}
             required
           >
             <option value="">Seleccionar Cargo</option>
@@ -125,10 +129,10 @@ const Registro = () => {
         <div>
           <label>Avatar:</label>
           <input
-            type= 'text'
+            type="file"
             name="avatar"
-            value={formData.avatar}
-            onChange={change}
+            onChange={avatarChange}
+            accept="image/*"
             required
           />
         </div>
@@ -138,4 +142,8 @@ const Registro = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Registro;
+=======
+export default Register;
+>>>>>>> 8d7f337 (fix: :bug: Fix Register/login)
