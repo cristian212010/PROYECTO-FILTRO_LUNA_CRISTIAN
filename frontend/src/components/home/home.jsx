@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const Home = ()=>{
-    <p>Hola</p>
+    return(
+        <p>Hola mundo, para yedher </p>
+    )
+  
 }
 
 export default Home
