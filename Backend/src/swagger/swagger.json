@@ -1,0 +1,321 @@
+{
+    "openapi": "3.0.0",
+        "info": {
+            "title": "API Filtro Cristan Camilo Luna",
+            "version": "1.0.0",
+            "description": "Documentacion de la api creada para el Filtro"
+        },
+        "servers":[
+            {
+                "url": "http://localhost:6996",
+                "descripcion": "Direccion pricipal para el consumo de la API"
+            }
+        ],
+        "paths":{
+            "/areas/getAll":{
+                "get": {
+                  "tags": [
+                    "areas"
+                  ],
+                  "summary": "Get all Areas",
+                  "description": "Obtiene una lista con todas las Areas de tarbajo existentes",
+                  "parameters": [],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "areas": {
+                                "nombre": "Marketing",
+                                "ubicacion": "Edificio Marketing",
+                                "descripcion": "Se encarga de toda la parte de publicidad y sponsors de los productos",
+                                "estado": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/cargos/getAll":{
+                "get": {
+                  "tags": [
+                    "cargos"
+                  ],
+                  "summary": "Get all Charges",
+                  "description": "Obtiene una lista con todas las Cargos de tarbajo existentes",
+                  "parameters": [],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "cargos": {
+                                  "cargo": "Gerente de Marketing",
+                                  "funcion": "Supervisar y liderar las estrategias de marketing y promoción de la empresa.",
+                                  "estado": true,
+                                  "departamento": [
+                                    {
+                                      "_id": "6521cdfb4cb9385ff8f0fef0",
+                                      "nombre": "Marketing",
+                                      "ubicacion": "Departamento de Marketing",
+                                      "descripcion": "El equipo de Marketing se encarga de promocionar nuestros productos y servicios, así como de desarrollar estrategias para atraer a nuevos clientes y mantener a los existentes.",
+                                      "estado": true
+                                    }
+                                  ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/indicadores/getAll":{
+                "get": {
+                  "tags": [
+                    "indicadores"
+                  ],
+                  "summary": "Get all Indicators",
+                  "description": "Obtiene una lista con todas las Indicadores de los tarbajos existentes",
+                  "parameters": [],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "indicadores":{
+                                "indicador": "Modelado 3D de Productos",
+                                "descripcion": "Cantidad de productos que han sido modelados en 3D para su diseño y desarrollo.",
+                                "categoria": "media",
+                                "fecha_inicio": "2023-01-01",
+                                "fecha_fin": "2023-12-31",
+                                "formula": "Met_Agil",
+                                "frecuencia": "2/5",
+                                "cumplimiento": 75,
+                                "estado": true,
+                                "area": [
+                                  {
+                                    "_id": "6521cdfb4cb9385ff8f0fef1",
+                                    "nombre": "Diseño",
+                                    "ubicacion": "Departamento de Diseño",
+                                    "descripcion": "El equipo de Diseño trabaja en la creación de la identidad visual de la empresa, diseño gráfico, diseño de productos y experiencias de usuario atractivas y funcionales.",
+                                    "estado": true
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/usuarios/getAll":{
+                "get": {
+                  "tags": [
+                    "usuarios"
+                  ],
+                  "summary": "Get all Users",
+                  "description": "Obtiene una lista con todas los Ususarios existentes",
+                  "parameters": [],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "usuarios":{
+                                "nombre": "Juan",
+                                "apellido": "Pérez",
+                                "usuario": "juan.perez",
+                                "password": "cristian123",
+                                "estado": true,
+                                "avatar": "",
+                                "cargo": [
+                                  {
+                                    "_id": "6521ce694cb9385ff8f0ff02",
+                                    "cargo": "Administrador de Sistemas",
+                                    "funcion": "Administrar sistemas de tecnología de la información y redes.",
+                                    "departamento": "6521cdfb4cb9385ff8f0fef8",
+                                    "estado": true
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/reportes/getAll":{
+                "get": {
+                  "tags": [
+                    "reportes"
+                  ],
+                  "summary": "Get all Reports",
+                  "description": "Obtiene una lista con todas los Reportes existentes",
+                  "parameters": [],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "usuarios":{
+                                "problema": "Retraso en la entrega de modelos 3D para un nuevo proyecto.",
+                                "documentalista": "6521d1124cb9385ff8f0ff0e",
+                                "fecha_reporte": "2023-02-15",
+                                "estado": true,
+                                "indicador": [
+                                  {
+                                    "_id": "6521d04b4cb9385ff8f0ff04",
+                                    "indicador": "Modelado 3D de Productos",
+                                    "descripcion": "Cantidad de productos que han sido modelados en 3D para su diseño y desarrollo.",
+                                    "categoria": "media",
+                                    "fecha_inicio": "2023-01-01",
+                                    "fecha_fin": "2023-12-31",
+                                    "formula": "Met_Agil",
+                                    "frecuencia": "2/5",
+                                    "cumplimiento": 75,
+                                    "area": "6521cdfb4cb9385ff8f0fef1",
+                                    "estado": true
+                                  }
+                                ],
+                                "usuario": [
+                                  {
+                                    "_id": "6521d1124cb9385ff8f0ff0e",
+                                    "nombre": "Juan",
+                                    "apellido": "Pérez",
+                                    "usuario": "juan.perez",
+                                    "cargo": "6521ce694cb9385ff8f0ff02",
+                                    "password": "cristian123",
+                                    "estado": true,
+                                    "avatar": ""
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "no schema defined"
+                            },
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+        }
+}
