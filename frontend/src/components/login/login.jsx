@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom'; 
+
 const Login = () => {
-    const history = useHistory();
+  const history = useHistory();
   const [formData, setFormData] = useState({
     usuario: '',
     password: '',
@@ -61,6 +62,8 @@ const Login = () => {
         </div>
         <button type="submit">Iniciar Sesión</button>
       </form>
+      
+      <p>¿No tienes cuenta? <Link to="/register">Crear una</Link></p>
     </div>
   );
 };
