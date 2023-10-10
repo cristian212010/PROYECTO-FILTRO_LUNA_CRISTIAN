@@ -656,7 +656,7 @@
                       "required": true,
                       "schema": {
                         "type": "string",
-                        "description": "Id de la pelicula a eliminar"
+                        "description": "Id del Area a actualizar"
                       }
                     }
                   ],
@@ -691,7 +691,7 @@
                       "required": true,
                       "schema": {
                         "type": "string",
-                        "description": "Id de la pelicula a eliminar"
+                        "description": "Id del Cargo a eliminar"
                       }
                     }
                   ],
@@ -726,7 +726,7 @@
                       "required": true,
                       "schema": {
                         "type": "string",
-                        "description": "Id de la pelicula a eliminar"
+                        "description": "Id del Indicador a eliminar"
                       }
                     }
                   ],
@@ -761,7 +761,7 @@
                       "required": true,
                       "schema": {
                         "type": "string",
-                        "description": "Id de la pelicula a eliminar"
+                        "description": "Id del Usuario a eliminar"
                       }
                     }
                   ],
@@ -796,7 +796,7 @@
                       "required": true,
                       "schema": {
                         "type": "string",
-                        "description": "Id de la pelicula a eliminar"
+                        "description": "Id del Reporte a eliminar"
                       }
                     }
                   ],
@@ -816,6 +816,361 @@
                     }
                   }
                 }
+              },
+              "/areas/update/{_id}": {
+                "put": {
+                  "tags": [
+                    "areas"
+                  ],
+                  "summary": "Updates a Area",
+                  "description": "Actualiza una Area de trabajo de la base de datos",
+                  "requestBody": {
+                    "required": true,
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/definitions/areas"
+                        }
+                      }
+                    }
+                  },
+                  "parameters": [
+                    {
+                      "name": "_id",
+                      "in": "path",
+                      "required": true,
+                      "description": "Id del Area a actualizar",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "msg": "updated"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "404": {
+                      "description": "NOT FOUND",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Id Not Found"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/cargos/update/{_id}": {
+                "put": {
+                  "tags": [
+                    "cargos"
+                  ],
+                  "summary": "Updates a Charge",
+                  "description": "Actualiza un Cargo de trabajo de la base de datos",
+                  "requestBody": {
+                    "required": true,
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/definitions/cargos"
+                        }
+                      }
+                    }
+                  },
+                  "parameters": [
+                    {
+                      "name": "_id",
+                      "in": "path",
+                      "required": true,
+                      "description": "Id del Cargo a actualizar",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "msg": "updated"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "404": {
+                      "description": "NOT FOUND",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Id Not Found"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/indicadores/update/{_id}": {
+                "put": {
+                  "tags": [
+                    "indicadores"
+                  ],
+                  "summary": "Updates a Indicator",
+                  "description": "Actualiza un Indicador de la base de datos",
+                  "requestBody": {
+                    "required": true,
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/definitions/indicadores"
+                        }
+                      }
+                    }
+                  },
+                  "parameters": [
+                    {
+                      "name": "_id",
+                      "in": "path",
+                      "required": true,
+                      "description": "Id del Indicador a actualizar",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "msg": "updated"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "404": {
+                      "description": "NOT FOUND",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Id Not Found"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/usuarios/update/{_id}": {
+                "put": {
+                  "tags": [
+                    "usuarios"
+                  ],
+                  "summary": "Updates a User",
+                  "description": "Actualiza un Usuario de la base de datos",
+                  "requestBody": {
+                    "required": true,
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/definitions/usuarios"
+                        }
+                      }
+                    }
+                  },
+                  "parameters": [
+                    {
+                      "name": "_id",
+                      "in": "path",
+                      "required": true,
+                      "description": "Id del Usuario a actualizar",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "msg": "updated"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "404": {
+                      "description": "NOT FOUND",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Id Not Found"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/reportes/update/{_id}": {
+                "put": {
+                  "tags": [
+                    "reportes"
+                  ],
+                  "summary": "Updates a Report",
+                  "description": "Actualiza un Reporte de la base de datos",
+                  "requestBody": {
+                    "required": true,
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/definitions/reportes"
+                        }
+                      }
+                    }
+                  },
+                  "parameters": [
+                    {
+                      "name": "_id",
+                      "in": "path",
+                      "required": true,
+                      "description": "Id del Area a actualizar",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "msg": "updated"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "400": {
+                      "description": "NOT OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Bad Request (could change)"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "404": {
+                      "description": "NOT FOUND",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                              "error": "Id Not Found"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
         },
 
@@ -825,7 +1180,7 @@
             "properties": {
               "nombre":{
                 "type": "string",
-                "example": "Post areas Example"
+                "example": "Areas Example"
               },
               "ubicacion":{
                 "type": "string",
@@ -846,7 +1201,7 @@
             "properties": {
               "cargo":{
                 "type": "string",
-                "example": "Post cargos Example"
+                "example": "Cargos Example"
               },
               "funcion":{
                 "type": "string",
@@ -867,7 +1222,7 @@
             "properties": {
               "indicador":{
                 "type": "string",
-                "example": "Post indicador Example"
+                "example": "Indicador Example"
               },
               "descripcion":{
                 "type": "string",
