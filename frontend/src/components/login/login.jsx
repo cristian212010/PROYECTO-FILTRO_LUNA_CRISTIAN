@@ -43,6 +43,7 @@ const Login = () => {
   
       if (userResponse.status === 200 && userResponse.data.length > 0) {
         const userDataFromServer = userResponse.data[0];
+        
         if (userDataFromServer.nombre && userDataFromServer.apellido && userDataFromServer.avatar) {
           setUserData({
             nombre: userDataFromServer.nombre,
