@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/styles/home.css'
+import axios from 'axios'
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import * as GiIcons from 'react-icons/gi'
 
-const Home = ()=>{
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
-  };
+const Home = () => {
+  const [APIData, setAPIData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:6996/indicadores/getAll`)
+      .then((response) => {
+        console.log(response.data);
+        setAPIData(response.data);
+      })
+  })
 
   return (
     <div className='content'>
       <div className='text'>
-        <h2>Panel de Indicadores</h2>
+        <h1>Panel de Indicadores</h1>
         <p>Aqui puedes visualizar los indicadores propuestos y añadidos por tu equipo de trabajo. Si quieres ver más detalles , dale click a uno de ellos para más información.</p>
       </div>
       <div>
-        <table>
+        <table class="tablita">
           <thead>
             <tr>
               <th>Indicador</th>
@@ -26,24 +34,34 @@ const Home = ()=>{
               <th>Frecuencia</th>
               <th>Cumplimiento</th>
               <th>Área</th>
+              <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-              <td>XD</td>
-            </tr>
-          </tbody>
+          {
+            APIData.map((data) => {
+              return (
+                <tbody>
+                  <tr>
+                    <td>{data.indicador}</td>
+                    <td>{data.descripcion}</td>
+                    <td>{data.categoria}</td>
+                    <td>{data.fecha_inicio}</td>
+                    <td>{data.fecha_fin}</td>
+                    <td>{data.formula}</td>
+                    <td>{data.frecuencia}</td>
+                    <td> <CircularProgress value={data.cumplimiento} color={data.cumplimiento < 50 ? "red" : (data.cumplimiento >= 50 && data.cumplimiento <= 75) ? "orange" : "green"}><CircularProgressLabel><p className='porcentaje'><strong>{data.cumplimiento}%</strong></p></CircularProgressLabel> </CircularProgress></td>
+                    <td>{data.area[0].nombre}</td>
+                    <div className='icon'><GiIcons.GiHamburgerMenu></GiIcons.GiHamburgerMenu></div>
+                  </tr>
+                  <tr className="spacer">
+                    <td colspan="100"></td>
+                  </tr>
+                </tbody>
+              )
+            })
+          }
         </table>
       </div>
-      <button onClick={handleLogout}>Cerrar Sesión</button>
     </div>
   );
 };
