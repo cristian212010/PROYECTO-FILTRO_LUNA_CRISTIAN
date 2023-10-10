@@ -16,7 +16,7 @@ const getData = async (req, res) => {
                 from: "usuarios",
                 localField: "documentalista",
                 foreignField: "_id",
-                as: "usuario"
+                as: "documentalista"
             }}
         ]).toArray();
         res.json(response);

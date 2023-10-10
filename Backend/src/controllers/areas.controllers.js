@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb"
 const getData = async (req, res) => {
     try {
         const db = await connect();
-        const response = await db.collection('areas').find().toArray();
+        const response = await db.collection('areas').find({estado:true}).toArray();
         res.json(response);
     } catch (error) {
         res.status(404).json(error.message);
