@@ -1,64 +1,66 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import "../../assets/styles/home.css";
+import Navbar from '../navbar/navbar';
+
 
 const Reportes = () => {
 
-const [APIData, setAPIData] = useState([]);
+  const [APIData, setAPIData] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     axios.get(`http://localhost:6996/reportes/getAll`)
-    .then((response)=>{
-      console.log(response.data);
-      setAPIData(response.data);
-    })
+      .then((response) => {
+        console.log(response.data);
+        setAPIData(response.data);
+      })
   })
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/login';
-  };
 
   return (
     <div>
-      <h2>  Reportes</h2>
-      <p>Bienvenido a Reportes.</p>
-
-    <div className='content'>
-      <div className='text'>
-        <h2>Panel de Reportes</h2>
-        <p>Aqui puedes visualizar los Reportes añadidos por tu equipo de trabajo. Si quieres ver más detalles , dale click a uno de ellos para más información.</p>
-      </div>
       <div>
-        <table>
-          <thead>
+      <Navbar></Navbar>
+      </div>
+      <div className='content'>
+        <div className='text'>
+          <h1>Panel de Reportes</h1>
+          <p>Aqui puedes visualizar los Reportes ocurridos y los añadidos Recientemente por tu equipo de trabajo.</p>
+        </div>
+        <div>
+          <table class="tablita">
+            <thead>
             <tr>
               <th>Problema</th>
               <th>Reportado Por</th>
               <th>Fecha_Reporte</th>
               <th>Indicador Afectado</th>
             </tr>
-          </thead>
-          <tbody>
-          {
-            APIData.map((data)=>{
-              return(
-                <tr>
-                  <td>{data.problema}</td>
-                  <td>{data.documentalista[0].nombre} {data.documentalista[0].apellido}</td>
-                  <td>{data.fecha_reporte}</td>
-                  <td>{data.indicador[0].indicador}</td>
-                </tr>
-              )
-            })
+            </thead>
+            {
+              APIData.map((data) => {
+                return (
+                  
+                  <tbody>
+                    <tr>
+                    <td>{data.problema}</td>
+                    <td>{data.documentalista[0].nombre} {data.documentalista[0].apellido}</td>
+                    <td>{data.fecha_reporte}</td>
+                    <td>{data.indicador[0].indicador}</td>
+                    </tr>
+                  </tbody>
+              
+                )
+              })
             }
-          </tbody>
-        </table>
-      </div>
-
-      <button onClick={handleLogout}>Cerrar Sesión</button>
-    </div>
-    </div>
+          </table>
+        </div>
+        <button className='btn-add'>Añadir Elementos</button>
+       </div> 
+       </div> 
   );
 };
 
 export default Reportes;
+
+
+

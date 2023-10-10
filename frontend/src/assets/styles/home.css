@@ -14,7 +14,7 @@
 .tablita {
     margin-top: 1.2rem;
     text-align: center;
-    max-width: 1800px;
+    max-width: 1600px;
     width: 100%;
     
 }
@@ -89,7 +89,7 @@ table.tablita {
 }
 
 table.tablita {
-    height: 566px;
+    height: 256px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
