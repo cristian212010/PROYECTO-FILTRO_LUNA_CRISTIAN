@@ -103,3 +103,11 @@ table.tablita {
     padding: 15px 65px 15px 65px;
     margin-top: 1.5rem;
 }
+
+.tablita td.descripcion {
+    white-space: nowrap;
+    overflow: hidden;  
+    text-overflow: ellipsis; 
+    max-width: 150px;     
+  }
+  

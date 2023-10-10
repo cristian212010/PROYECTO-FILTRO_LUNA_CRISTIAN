@@ -47,7 +47,7 @@ const Home = () => {
                   <tbody>
                     <tr>
                       <td>{data.indicador}</td>
-                      <td>{data.descripcion}</td>
+                      <td className="descripcion">{data.descripcion}</td>
                       <td>{data.categoria}</td>
                       <td>{data.fecha_inicio}</td>
                       <td>{data.fecha_fin}</td>
