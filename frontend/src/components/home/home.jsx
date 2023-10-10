@@ -18,7 +18,9 @@ const Home = () => {
 
   return (
     <div>
+      <div>
       <Navbar></Navbar>
+      </div>
       <div className='content'>
         <div className='text'>
           <h1>Panel de Indicadores</h1>

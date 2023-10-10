@@ -1,19 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .content {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,10 +12,11 @@ body {
 }
 
 .tablita {
+    margin-top: 1.2rem;
     text-align: center;
-    max-width: 1300px;
+    max-width: 1800px;
     width: 100%;
-    margin: 0 auto;
+    
 }
 
 .tablita thead tr,
@@ -101,7 +89,7 @@ table.tablita {
 }
 
 table.tablita {
-    height: 650px;
+    height: 566px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
