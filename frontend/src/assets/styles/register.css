@@ -1,0 +1,15 @@
+.form-register{
+    background-color: #ffffff;
+    border: 1px solid #707070;
+    border-radius: 50px;
+    opacity: 1;
+    width: 650px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    padding: 0.5rem 0 0.5rem 0;
+}
