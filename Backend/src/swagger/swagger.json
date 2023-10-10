@@ -641,6 +641,181 @@
                     }
                   }
                 }
+              },
+              "/areas/delete/{_id}": {
+                "delete": {
+                  "tags": [
+                    "areas"
+                  ],
+                  "summary": "Deletes a Area",
+                  "description": "Elimina una Area de trabajo de la base de datos",
+                  "parameters": [
+                    {
+                      "in": "path",
+                      "name": "_id",
+                      "required": true,
+                      "schema": {
+                        "type": "string",
+                        "description": "Id de la pelicula a eliminar"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                                "msg": "deleted"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/cargos/delete/{_id}": {
+                "delete": {
+                  "tags": [
+                    "cargos"
+                  ],
+                  "summary": "Deletes a Chrage",
+                  "description": "Elimina un Cargo de trabajo de la base de datos",
+                  "parameters": [
+                    {
+                      "in": "path",
+                      "name": "_id",
+                      "required": true,
+                      "schema": {
+                        "type": "string",
+                        "description": "Id de la pelicula a eliminar"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                                "msg": "deleted"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/indicadores/delete/{_id}": {
+                "delete": {
+                  "tags": [
+                    "indicadores"
+                  ],
+                  "summary": "Deletes a Indicator",
+                  "description": "Elimina un Indicador de la base de datos",
+                  "parameters": [
+                    {
+                      "in": "path",
+                      "name": "_id",
+                      "required": true,
+                      "schema": {
+                        "type": "string",
+                        "description": "Id de la pelicula a eliminar"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                                "msg": "deleted"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/usuarios/delete/{_id}": {
+                "delete": {
+                  "tags": [
+                    "usuarios"
+                  ],
+                  "summary": "Deletes a User",
+                  "description": "Elimina un Usuario de la base de datos",
+                  "parameters": [
+                    {
+                      "in": "path",
+                      "name": "_id",
+                      "required": true,
+                      "schema": {
+                        "type": "string",
+                        "description": "Id de la pelicula a eliminar"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                                "msg": "deleted"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "/reportes/delete/{_id}": {
+                "delete": {
+                  "tags": [
+                    "reportes"
+                  ],
+                  "summary": "Deletes a Report",
+                  "description": "Elimina un Reporte de la base de datos",
+                  "parameters": [
+                    {
+                      "in": "path",
+                      "name": "_id",
+                      "required": true,
+                      "schema": {
+                        "type": "string",
+                        "description": "Id de la pelicula a eliminar"
+                      }
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {
+                          "schema": {
+                            "type": "object",
+                            "example": {
+                                "msg": "deleted"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
         },
 
