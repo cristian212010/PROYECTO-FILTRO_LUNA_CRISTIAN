@@ -24,6 +24,29 @@ const getData = async (req, res) =>{
     }
 }
 
+const getOneData = async (req, res) =>{
+    try {
+        const db = await connect();
+        const usuario = req.params.usuario
+        const response = await db.collection('usuarios').aggregate([
+            {
+                $match: {usuario:usuario}
+            },
+            {
+                $lookup:{
+                    from: "cargos",
+                    localField: "cargo",
+                    foreignField: "_id",
+                    as: "cargo"
+                }
+            }
+        ]).toArray();
+        res.json(response);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
 const insertData = async (req, res) =>{
     try {
         const db = await connect();
@@ -71,4 +94,4 @@ const updateData = async (req, res) =>{
     }
 }
 
-export { getData, insertData, deleteData, updateData };
+export { getData, insertData, deleteData, updateData, getOneData };
