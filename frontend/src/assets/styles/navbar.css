@@ -12,3 +12,44 @@
 .logo-navbar{
     width: 30px;
 }
+
+.menu-header div:not(.divImg) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconAdd {
+    font-size: 1.6rem;
+    color: #FF6F2C;
+    margin-right: 5px;
+}
+
+.iconRefresh {
+    font-size: 1.6rem;
+    color: #FF6F2C;
+    margin-right: 5px;
+}
+
+.iconDelete {
+    font-size: 1.6rem;
+    color: #FF6F2C;
+    margin-right: 5px;
+}
+
+.iconBug {
+    font-size: 1.6rem;
+    color: #FF6F2C;
+    margin-right: 5px;
+}
+
+.iconHelp {
+    font-size: 1.6rem;
+    color: #FF6F2C;
+    margin-right: 5px;
+}
+
+.iconNotificacion {
+    font-size: 20px;
+    margin-left: 13px;
+}
