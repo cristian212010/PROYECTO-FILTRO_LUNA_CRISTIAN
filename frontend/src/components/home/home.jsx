@@ -3,6 +3,7 @@ import '../../assets/styles/home.css'
 import axios from 'axios'
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import * as GiIcons from 'react-icons/gi'
+import Navbar from '../navbar/navbar';
 
 const Home = () => {
   const [APIData, setAPIData] = useState([]);
@@ -64,6 +65,14 @@ const Home = () => {
           </table>
         </div>
         <button className='btn-add'>Añadir Elementos</button>
+      <Navbar></Navbar>
+      <h2>  Inicio</h2>
+      <p>Bienvenido al inicio.</p>
+
+    <div className='content'>
+      <div className='text'>
+        <h2>Panel de Indicadores</h2>
+        <p>Aqui puedes visualizar los indicadores propuestos y añadidos por tu equipo de trabajo. Si quieres ver más detalles , dale click a uno de ellos para más información.</p>
       </div>
     </div>
   );
