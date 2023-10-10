@@ -41,27 +41,33 @@ const Login = () => {
         },
       });
   
-      if (userResponse.status == 200 && userResponse.data.nombre && userResponse.data.apellido && userResponse.data.avatar) {
-        setUserData({
-          nombre: userResponse.data.nombre,
-          apellido: userResponse.data.apellido,
-          avatar: userResponse.data.avatar,
-        });
-        setTimeout(() => {
-          redirectToLoader();
-        }, 500);
+      if (userResponse.status === 200 && userResponse.data.length > 0) {
+        const userDataFromServer = userResponse.data[0];
+        if (userDataFromServer.nombre && userDataFromServer.apellido && userDataFromServer.avatar) {
+          setUserData({
+            nombre: userDataFromServer.nombre,
+            apellido: userDataFromServer.apellido,
+            avatar: userDataFromServer.avatar,
+          });
+          setTimeout(() => {
+            redirectToLoader();
+          }, 500);
+        } else {
+          setMensajeError('Datos de usuario incorrectos');
+        }
       } else {
         setMensajeError('Datos de usuario incorrectos');
       }
     } catch (error) {
       console.error(error);
-      if (error.response && error.response.status == 400) {
+      if (error.response && error.response.status === 400) {
         setMensajeError('Usuario o contraseña incorrectos');
       } else {
         setMensajeError('Error en el servidor, por favor, contacte al servicio técnico');
       }
     }
   };
+  
   
 
   return (
