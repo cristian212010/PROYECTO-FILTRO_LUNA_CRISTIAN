@@ -62,6 +62,7 @@ const Home = () => {
           }
         </table>
       </div>
+        <button className='btn-add'>Añadir Elementos</button>
     </div>
   );
 };

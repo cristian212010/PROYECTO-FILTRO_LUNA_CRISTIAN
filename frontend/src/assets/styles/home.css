@@ -88,10 +88,20 @@ h1 {
 
 table.tablita { 
     display: block; 
- }
+}
 
 table.tablita {
     height: 650px;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.btn-add{
+    font-size: 1rem;
+    background-color: #FF6F2C;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 65px 15px 65px;
+    margin-top: 1.5rem;
 }
