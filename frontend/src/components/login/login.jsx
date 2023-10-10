@@ -22,8 +22,11 @@ const Login = () => {
     });
   };
 
-  const redirectToLoader = () => {
-    history.push('/loader');
+  const redirectLoader = () => {
+    history.push({
+      pathname: '/loader',
+      state: { userData: userData },
+    });
   };
 
   const submitLogin = async (event) => {
@@ -51,7 +54,7 @@ const Login = () => {
             avatar: userDataFromServer.avatar,
           });
           setTimeout(() => {
-            redirectToLoader();
+            redirectLoader();
           }, 500);
         } else {
           setMensajeError('Datos de usuario incorrectos');

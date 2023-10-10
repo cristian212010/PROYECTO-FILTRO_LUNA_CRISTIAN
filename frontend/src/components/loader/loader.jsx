@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
 
-const Loader = ({ userData }) => {
+const Loader = () => {
+  const location = useLocation();
+  const userData = location.state ? location.state.userData : null;
+
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
