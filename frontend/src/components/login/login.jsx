@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom'; 
+import logo from '../../assets/img/KARIO_LOGO.png';
+import '../../assets/styles/login.css';
 
 const Login = () => {
   const history = useHistory();
@@ -41,34 +43,43 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Iniciar Sesión</h2>
-      {mensajeError && <p>{mensajeError}</p>}
-      <form onSubmit={submitLogin}>
-        <div>
-          <label>Usuario:</label>
-          <input
-            type="text"
-            name="usuario"
-            value={formData.usuario}
-            onChange={changeManager}
-            required
-          />
+    <div className='background'>
+      <div className='filter-login'>
+        <div className='form-login'>
+          <img src={logo} alt="KARIO" className='logo-login' />
+          <h2 className='h2-login'>Bienvenido al panel digital de KARIO Media</h2>
+          <p className='p-login'>Por favor ingresa los siguientes datos para ingresar a la plataforma</p>
+          {mensajeError && <p>{mensajeError}</p>}
+          <form onSubmit={submitLogin}>
+            <div className='div-input'>
+              <label>Usuario</label>
+              <input
+                type="text"
+                name="usuario"
+                value={formData.usuario}
+                onChange={changeManager}
+                required
+                className='input-login'
+              />
+            </div>
+            <div className='div-input'>
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={changeManager}
+                required
+                className='input-login'
+              />
+            </div>
+            <button type="submit" className='btn-login'>Iniciar Sesión</button>
+          </form>
+        
+          <p className='p-registrar'>¿No tienes cuenta? <Link to="/register">Crear una</Link></p>
+          <p className='p-problemas'>Tienes problemas para ingresar? Por favor contactarse con asistencia técnica lo más pronto posible</p>
         </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={changeManager}
-            required
-          />
-        </div>
-        <button type="submit">Iniciar Sesión</button>
-      </form>
-      
-      <p>¿No tienes cuenta? <Link to="/register">Crear una</Link></p>
+      </div>
     </div>
   );
 };
