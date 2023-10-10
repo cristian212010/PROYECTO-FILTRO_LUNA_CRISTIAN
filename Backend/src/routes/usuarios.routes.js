@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { getData, insertData, deleteData, updateData } from '../controllers/usuarios.controllers.js';
+import { getData, insertData, deleteData, updateData, getOneData } from '../controllers/usuarios.controllers.js';
 import validateDocuments from '../middlewares/validate.documents.js';
 
 const router = Router();
 
 router.get('/getAll', getData);
+
+router.get('/getOne/:usuario', getOneData);
 
 router.post('/insert',[
     check('nombre', 'Nombre no valido').not().isEmpty(),
