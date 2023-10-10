@@ -12,6 +12,7 @@ const Login = () => {
   });
 
   const [mensajeError, setMensajeError] = useState('');
+  const [userData, setUserData] = useState(null); 
 
   const changeManager = (event) => {
     const { name, value } = event.target;
@@ -19,6 +20,10 @@ const Login = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const redirectToLoader = () => {
+    history.push('/loader');
   };
 
   const submitLogin = async (event) => {
@@ -30,17 +35,34 @@ const Login = () => {
       localStorage.setItem('token', token);
   
       console.log('Inicio de sesión exitoso', response.data);
-      history.push('/home');
+      const userResponse = await axios.get(`http://localhost:6996/usuarios/getOne/${formData.usuario}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      if (userResponse.status == 200 && userResponse.data.nombre && userResponse.data.apellido && userResponse.data.avatar) {
+        setUserData({
+          nombre: userResponse.data.nombre,
+          apellido: userResponse.data.apellido,
+          avatar: userResponse.data.avatar,
+        });
+        setTimeout(() => {
+          redirectToLoader();
+        }, 500);
+      } else {
+        setMensajeError('Datos de usuario incorrectos');
+      }
     } catch (error) {
       console.error(error);
-
-      if (error.response.status === 400) {
+      if (error.response && error.response.status == 400) {
         setMensajeError('Usuario o contraseña incorrectos');
       } else {
         setMensajeError('Error en el servidor, por favor, contacte al servicio técnico');
       }
     }
   };
+  
 
   return (
     <div className='background'>
