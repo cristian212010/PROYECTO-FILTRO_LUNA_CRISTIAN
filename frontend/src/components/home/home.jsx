@@ -3,6 +3,7 @@ import '../../assets/styles/home.css'
 import axios from 'axios'
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import * as GiIcons from 'react-icons/gi'
+import Navbar from '../navbar/navbar';
 
 const Home = () => {
   const [APIData, setAPIData] = useState([]);
@@ -17,6 +18,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div className='content'>
         <div className='text'>
           <h1>Panel de Indicadores</h1>
