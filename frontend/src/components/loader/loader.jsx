@@ -1,25 +1,38 @@
+
 import React, { useEffect, useState } from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
 
 const Loader = () => {
   const location = useLocation();
-  const userData = location.state ? location.state.userData : null;
+
+  const nombre = localStorage.getItem('nombre');
+  const apellido = localStorage.getItem('apellido');
+  const avatar = localStorage.getItem('avatar');
 
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setRedirect(true);
-    }, 3000); 
+    }, 3000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (nombre && apellido && avatar) {
+      const timer = setTimeout(() => {
+        setRedirect(true);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [nombre, apellido, avatar]);
 
   if (redirect) {
     return <Redirect to="/home" />;
   }
 
-  if (!userData) {
+  if (!nombre || !apellido || !avatar) {
     return (
       <div>
         <p>Cargando...</p>
@@ -29,11 +42,12 @@ const Loader = () => {
 
   return (
     <div>
-      <h2>Bienvenido, {userData.nombre} {userData.apellido}</h2>
-      <img src={userData.avatar} alt="Avatar" />
+      <h2>Bienvenido, {nombre} {apellido}</h2>
+      <img src={avatar} alt="Avatar" />
       <p>Cargando...</p>
     </div>
   );
 };
 
 export default Loader;
+
