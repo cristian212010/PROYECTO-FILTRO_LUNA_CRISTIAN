@@ -11,7 +11,6 @@ const Home = () => {
   useEffect(() => {
     axios.get(`http://localhost:6996/indicadores/getAll`)
       .then((response) => {
-        console.log(response.data);
         setAPIData(response.data);
       })
   })

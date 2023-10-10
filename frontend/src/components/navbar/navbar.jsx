@@ -3,6 +3,10 @@ import logo from "../../assets/img/KARIO_LOGO.png";
 import "../../assets/styles/navbar.css";
 
 const Navbar = () =>{
+    const logOut = () => {
+        localStorage.removeItem('token');
+        window.location.href = '/login';
+      };
     return (
         <div className="menu-header">
             <div>
@@ -26,7 +30,7 @@ const Navbar = () =>{
             <div className="perfil-header">
                 <p>a</p>
                 <p>a</p>
-                <p>a</p>
+                <button onClick={logOut}>Cerrar Sesión</button>
             </div>
         </div>                
     )
