@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Navbar from '../navbar/navbar';
 
 const Home = () => {
 
@@ -10,6 +11,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <h2>  Inicio</h2>
       <p>Bienvenido al inicio.</p>
 
