@@ -4,7 +4,7 @@
     border-radius: 50px;
     opacity: 1;
     width: 650px;
-    height: 600px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,4 +16,17 @@
 
 .avatar-preview{
     width: .75rem;
+}
+
+.logo-register {
+    margin-top: 1rem;
+    width: 80px;
+}
+
+.p-registrar {
+    margin-bottom: 1rem;
+}
+
+.div-input select {
+    height: 2.3rem;
 }
