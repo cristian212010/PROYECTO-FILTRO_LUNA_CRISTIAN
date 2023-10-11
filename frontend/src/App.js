@@ -8,8 +8,11 @@ import Authentication from "./components/authentication/authentication";
 import Register from "./components/register/register";
 import Loader from "./components/loader/loader";
 import Reportes from "./components/reportes/reportes"
+import { ChakraProvider } from '@chakra-ui/react'
+
 function App() {
   return (
+    <ChakraProvider>
     <Router>
       <Switch>
         <Route path="/login" exact component={Login} />
@@ -22,6 +25,7 @@ function App() {
         <Redirect from="/" to="/home" />
       </Switch>
     </Router>
+    </ChakraProvider>
   );
 }
 

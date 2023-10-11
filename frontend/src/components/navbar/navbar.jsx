@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
+import axios from "axios";
 import logo from "../../assets/img/KARIO_LOGO.png";
 /* import profile from "../../assets/img/default-avatar.png"
 import { Avatar, Wrap, WrapItem } from '@chakra-ui/react'; */
@@ -8,13 +9,69 @@ import * as Io5Icons from 'react-icons/io5';
 import * as RiIcons from 'react-icons/ri';
 import * as IoIcons from 'react-icons/io';
 import * as BsIcons from 'react-icons/bs'
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    Button,
+    Select
+  } from '@chakra-ui/react'
+
+
 
 const Navbar = () =>{
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [APIData, setAPIData] = useState([]);
+    const [_id, setID] = useState("");
+    let url = ""
+    let dato = ""
+    if (window.location.pathname === "/reports") {
+        url = "reportes"
+    }
+    else if (window.location.pathname === "/home"){
+        url = "indicadores"
+    }
+    
+    
+    
+
+    useEffect(() =>{
+        axios.get(`http://localhost:6996/${url}/getAll`)
+        .then((response) =>{
+            console.log(response.data);
+            setAPIData(response.data);
+        })
+        
+    },[]);
+
+
+    const getData = () =>{
+        axios.get(`http://localhost:6996/${url}/getAll`)
+        .then((getData) =>{
+            setAPIData(getData.data)
+        })
+    };
+
+    const  onDelete = (_id) =>{
+        axios.delete(`http://localhost:6996/${url}/delete/${_id}`)
+        .then(()=>{
+            getData();
+        })
+    };
+
+
+    
     const logOut = () => {
         localStorage.removeItem('token');
         window.location.href = '/login';
       };
     return (
+        <div>
         <div className="menu-header">
             <div>
                 <Io5Icons.IoAddCircleSharp className = "iconAdd"></Io5Icons.IoAddCircleSharp>
@@ -24,8 +81,8 @@ const Navbar = () =>{
                 <MdIcons.MdOutlineRefresh className = "iconRefresh"></MdIcons.MdOutlineRefresh>
                 <p>Refrescar</p>
             </div>
-            <div>
-                <MdIcons.MdDeleteForever className = "iconDelete"></MdIcons.MdDeleteForever>
+            <div onClick={onOpen}>
+                <MdIcons.MdDeleteForever  className = "iconDelete"></MdIcons.MdDeleteForever>
                 <p>Eliminar</p>
             </div>
             <div>
@@ -49,6 +106,47 @@ const Navbar = () =>{
                 </Wrap> */}
                 <button onClick={logOut}>Cerrar Sesión</button>
             </div>
+            
+        </div>
+        <>
+            <Modal isOpen={isOpen} size={"lg"} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Eliminar Datos</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                <Select className="" id="" onChange={(e)=>{setID(e.target.value)}}>
+                    {
+                        
+                    }
+                    <option>Selecciona El Dato a eliminar</option>
+                        {
+                            
+                            APIData.map((data)=>{
+                                if (window.location.pathname === "/reports") {
+                                    dato = data.problema
+                                }
+                                else if (window.location.pathname === "/home"){
+                                    dato = data.indicador
+                                }
+                                return(
+                                    <option value={data._id}>{dato}</option>
+                                    
+                                )
+                            })
+                        }
+                </Select>
+                </ModalBody>
+      
+                <ModalFooter>
+                  <Button colorScheme='blue' mr={3} onClick={onClose}>
+                    Close
+                  </Button>
+                  <Button variant='ghost' onClick={()=>onDelete(_id)}>Eliminar</Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+          </>            
         </div>                
     )
 }
