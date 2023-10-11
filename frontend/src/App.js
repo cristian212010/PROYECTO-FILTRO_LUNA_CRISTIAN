@@ -10,7 +10,7 @@ import Loader from "./components/loader/loader";
 import Reportes from "./components/reportes/reportes"
 import { ChakraProvider } from '@chakra-ui/react'
 import RenderAcordion from "./components/ayuda/ayuda";
-
+import EditUser from "./components/editUser/editUser";
 function App() {
   return (
     <ChakraProvider>
@@ -24,6 +24,7 @@ function App() {
         <Route path="/loader" exact component={Loader} /> 
 
         <Authentication path="/reports" component={Reportes} />
+        <Route path="/editProfile" exact component={EditUser} />
         <Redirect from="/" to="/home" />
       </Switch>
     </Router>

@@ -47,10 +47,13 @@ const Login = () => {
       if (userResponse.status === 200 && userResponse.data.length > 0) {
         const userDataFromServer = userResponse.data[0];
 
-        if (userDataFromServer.nombre && userDataFromServer.apellido && userDataFromServer.avatar) {
+        if (userDataFromServer.nombre && userDataFromServer.cargo && userDataFromServer.apellido && userDataFromServer.avatar && userDataFromServer._id && userDataFromServer.usuario) {
           localStorage.setItem('nombre', userDataFromServer.nombre);
           localStorage.setItem('apellido', userDataFromServer.apellido);
           localStorage.setItem('avatar', userDataFromServer.avatar);
+          localStorage.setItem('_id', userDataFromServer._id);
+          localStorage.setItem('usuario', userDataFromServer.usuario);
+          localStorage.setItem('cargo', userDataFromServer.cargo[0].cargo);
 
           setTimeout(() => {
             redirectLoader();

@@ -24,11 +24,9 @@ router.delete('/delete/:id',[
 ], deleteData);
 
 router.put('/update/:id', [
-    check('id', 'No es un ID válido').isMongoId(),
     check('nombre', 'Nombre no valido').not().isEmpty(),
     check('apellido', 'Apellido no valido').not().isEmpty(),
     check('usuario', 'Usuario no valido').not().isEmpty(),
-    check('password', 'Password').not().isEmpty(),
     check('cargo', 'Cargo no valido').isMongoId(),
     validateDocuments
 ], updateData);
