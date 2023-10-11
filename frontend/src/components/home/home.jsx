@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/styles/home.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import * as GiIcons from 'react-icons/gi'
 import Navbar from '../navbar/navbar';
@@ -68,7 +69,9 @@ const Home = () => {
             }
           </table>
         </div>
-        <button className='btn-add'>Añadir Elementos</button>
+        <Link to='/crearIndicadores'>
+          <button className='btn-add'>Añadir Elementos</button>
+        </Link>
        </div> 
        </div> 
   );
