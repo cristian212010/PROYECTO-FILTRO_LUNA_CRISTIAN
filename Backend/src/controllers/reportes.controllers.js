@@ -31,6 +31,7 @@ const insertData = async (req, res) => {
         const data = req.body
         data.indicador = new ObjectId(data.indicador);
         data.documentalista = new ObjectId(data.documentalista);
+        data.estado = true;
         const response = await db.collection("reportes").insertOne(data);
         res.json({
             data,
@@ -44,7 +45,7 @@ const insertData = async (req, res) => {
 const deleteData = async (req, res) => {
     try {
         const db = await connect();
-        const id   = req.params;
+        const id = req.params;
         const response = await db.collection("reportes").findOneAndUpdate({_id: new ObjectId(id)}, { $set: {estado: false }});
         res.json(response);
     } catch (error) {
