@@ -120,7 +120,7 @@ const Navbar = () => {
                             </MenuButton>
                             <MenuList display="flex" flexDirection="colum">
                                 <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
-                                <MenuItem><a href="/editProfile">Editar Perfil</a></MenuItem>
+                                <MenuItem> <Link to="/editProfile">Editar perfil</Link></MenuItem>
                             </MenuList>
                         </Menu>
 
