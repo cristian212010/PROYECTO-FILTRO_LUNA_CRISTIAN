@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Frontend del Proyecto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LLa aplicación está desarrollada en React y utiliza varias librerías y componentes para lograr sus funcionalidades. A continuación, se detalla la estructura del proyecto y sus componentes principales.
 
-## Available Scripts
+## Estructura de Directorios
 
-In the project directory, you can run:
+- **src**: Este directorio contiene todo el código fuente de la aplicación.
 
-### `npm start`
+  - **components**: Contiene los componentes de React utilizados en la aplicación.
+    - **App.jsx**: El componente principal que gestiona las rutas y la navegación.
+    - **Home.jsx**: La página principal que muestra una lista de indicadores.
+    - **Login.jsx**: La página de inicio de sesión.
+    - **Register.jsx**: La página de registro de usuario.
+    - **Loader.jsx**: Una página de carga que se muestra al iniciar sesión.
+    - **Reportes.jsx**: La página de reportes.
+    - **Navbar.jsx**: La barra de navegación en la parte superior.
+    - **RenderAcordion.jsx**: Un componente para mostrar preguntas frecuentes en un acordeón.
+    - **EditUser.jsx**: La página de edición de perfil de usuario.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  - **assets**: Contiene archivos estáticos como imágenes y estilos.
+  
+- **public**: Contiene archivos públicos como el ícono de la aplicación y el archivo HTML principal.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Componentes Principales
 
-### `npm test`
+### App.jsx
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+El componente principal que gestiona las rutas y la navegación de la aplicación. Utiliza React Router para definir las rutas y renderizar componentes.
 
-### `npm run build`
+### Home.jsx
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La página principal de la aplicación, que muestra una lista de indicadores. Obtiene datos de indicadores desde una API y los muestra en una tabla.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Login.jsx
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La página de inicio de sesión que permite a los usuarios autenticarse en la aplicación. Los datos de inicio de sesión se envían a través de una solicitud HTTP a la API.
 
-### `npm run eject`
+### Register.jsx
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+La página de registro de usuario. Permite a los usuarios registrarse proporcionando información como nombre, apellido, usuario, contraseña, cargo y avatar.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Loader.jsx
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Una página de carga que se muestra después de iniciar sesión exitosamente. Muestra el nombre del usuario y una imagen de avatar.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Reportes.jsx
 
-## Learn More
+La página de reportes que permite a los usuarios crear y gestionar reportes. Muestra una lista de problemas y permite eliminarlos.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Navbar.jsx
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+La barra de navegación en la parte superior de la aplicación con enlaces a diferentes secciones y opciones de usuario, como cerrar sesión y editar perfil.
 
-### Code Splitting
+### RenderAcordion.jsx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Un componente que muestra preguntas frecuentes en un acordeón. Los datos de las preguntas y respuestas se definen en el propio componente.
 
-### Analyzing the Bundle Size
+### EditUser.jsx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+La página de edición de perfil de usuario. Permite a los usuarios editar su información personal, como nombre, apellido, cargo y avatar.
 
-### Making a Progressive Web App
+## Uso
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Asegúrate de tener Node.jsx y npm instalados en tu sistema.
+2. Clona este repositorio en tu máquina.
+3. Abre una terminal en el directorio raíz del proyecto y ejecuta `npm install` para instalar las dependencias.
+4. Luego, ejecuta `npm start` para iniciar la aplicación en modo desarrollo.
 
-### Advanced Configuration
+## Notas Adicionales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- La aplicación utiliza React Router para gestionar las rutas y la navegación.
+- Para la comunicación con el backend, se utilizan solicitudes HTTP a través de la librería Axios.
+- Los estilos se gestionan a través de CSS y la librería Chakra UI se utiliza para algunos componentes.
+- Se implementa la autenticación de usuarios y la gestión de sesiones.
 
-### Deployment
+## Contribuciones
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Si deseas contribuir a este proyecto, no dudes en abrir algún pull request con tus cambios. También puedes informar sobre problemas que encuentres en el proyecto.
 
-### `npm run build` fails to minify
+## Licencia
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto está bajo la Licencia MIT. Consulte el archivo LICENSE para obtener más detalles.
