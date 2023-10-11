@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../assets/img/KARIO_LOGO.png";
 import profile from "../../assets/img/default-avatar.png"
-import { Avatar, Wrap, WrapItem } from '@chakra-ui/react';
 import "../../assets/styles/navbar.css";
 import * as MdIcons from 'react-icons/md';
 import * as Io5Icons from 'react-icons/io5';
@@ -19,7 +18,14 @@ import {
     ModalCloseButton,
     useDisclosure,
     Button,
-    Select
+    Select,
+    Wrap,
+    WrapItem,
+    Avatar,
+    Menu,
+    MenuList,
+    MenuItem,
+    MenuButton,
 } from '@chakra-ui/react'
 
 const Navbar = () => {
@@ -64,40 +70,62 @@ const Navbar = () => {
         localStorage.removeItem('token');
         window.location.href = '/login';
     };
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <div>
             <div className="menu-header">
                 <div>
                     <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
-                    <a href="#">Añadir</a>
+                    <a href="">Añadir</a>
                 </div>
                 <div>
                     <MdIcons.MdOutlineRefresh className="iconRefresh"></MdIcons.MdOutlineRefresh>
-                    <a href="#">Refrescar</a>
+                    <a href="">Refrescar</a>
                 </div>
                 <div onClick={onOpen}>
                     <MdIcons.MdDeleteForever className="iconDelete"></MdIcons.MdDeleteForever>
-                    <a href="#">Eliminar</a>
+                    <a href="">Eliminar</a>
                 </div>
                 <div>
                     <img src={logo} className="logo-navbar"></img>
                 </div>
                 <div>
                     <RiIcons.RiBug2Fill className="iconBug"></RiIcons.RiBug2Fill>
-                    <a href="#">Reportar</a>
+                    <a href="">Reportar</a>
                 </div>
                 <div>
                     <IoIcons.IoIosHelpCircle className="iconHelp"></IoIcons.IoIosHelpCircle>
-                    <a href="#">Ayuda</a>
+                    <a href="">Ayuda</a>
                 </div>
                 <div className="perfil-header">
-                    <a href="#"><BsIcons.BsFillGearFill className="iconConfig"></BsIcons.BsFillGearFill></a>
-                    <a href="#"><MdIcons.MdNotificationsActive className="iconNotificacion"></MdIcons.MdNotificationsActive></a>
-                    <Wrap>
-                        <WrapItem>
-                            <Avatar size='md' name='' src={profile}></Avatar>
-                        </WrapItem>
-                    </Wrap>
+                    <a href=""><BsIcons.BsFillGearFill className="iconConfig"></BsIcons.BsFillGearFill></a>
+                    <a href=""><MdIcons.MdNotificationsActive className="iconNotificacion"></MdIcons.MdNotificationsActive></a>
+                    <div>
+                        <Menu>
+                            <MenuButton background={"transparent"} as={Button} >
+                                <Wrap>
+                                    <WrapItem>
+                                        <Avatar size='md' name='' src={profile}></Avatar>
+                                    </WrapItem>
+                                </Wrap>
+                            </MenuButton>
+                            <MenuList  className="menu-profile">
+                                <MenuItem>Download</MenuItem>
+                                <MenuItem>Create a Copy</MenuItem>
+                                <MenuItem>Mark as Draft</MenuItem>
+                                <MenuItem>Delete</MenuItem>
+                                <MenuItem>Attend a Workshop</MenuItem>
+                            </MenuList>
+                        </Menu>
+
+                    </div>
+
                 </div>
             </div>
             <>
