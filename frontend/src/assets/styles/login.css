@@ -23,7 +23,7 @@
     border-radius: 50px;
     opacity: 1;
     width: 650px;
-    height: 500px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,10 +40,11 @@
 .h2-login{
     width: 350px;
     font-weight: 400;
+    font-size: 1.5rem;
 }
 
 .p-login{
-    font-size: 11px;
+    font-size: 13px;
     color: #888;
     font-weight: 400;
 }
@@ -57,12 +58,14 @@
 }
 
 .input-login{
-    width: 23rem;
-    height: 1.7rem;
+    width: 30rem;
+    height: 2rem;
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
     border-color: #b6b6b6;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .btn-login{
@@ -71,7 +74,7 @@
     border: none;
     border-radius: 50px;
     padding: 10px 40px 10px 40px;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .p-registrar{
@@ -81,7 +84,7 @@
 }
 
 .p-problemas{
-    font-size: 9px;
+    font-size: 11px;
     color: #888;
     font-weight: 300;
 }
