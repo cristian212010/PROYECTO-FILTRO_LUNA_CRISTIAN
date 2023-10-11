@@ -9,7 +9,6 @@ const Loader = () => {
   const nombre = localStorage.getItem('nombre');
   const apellido = localStorage.getItem('apellido');
   const avatar = localStorage.getItem('avatar');
-  const avatarName = avatar.slice(25);
 
   const [redirect, setRedirect] = useState(false);
 
@@ -48,7 +47,7 @@ const Loader = () => {
         <div className='form-loeader'>
           <img src={logo} alt="KARIO" className='logo-login' />
           <h2 className='h2-login'>Bienvenido, {nombre} {apellido}</h2>
-          <img src='' alt="Avatar" />
+          <img src={require('../../assets/img/default-avatar.png')} alt="Avatar" />
           <p>Cargando...</p>
         </div>
       </div>
