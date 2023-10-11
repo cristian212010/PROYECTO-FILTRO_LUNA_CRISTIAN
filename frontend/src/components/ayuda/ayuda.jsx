@@ -7,6 +7,7 @@ import {
     Box
   } from '@chakra-ui/react'
 import Navbar from '../navbar/navbar'
+import "../../assets/styles/ayuda.css"
 const preguntas_frecuentes = [
     {
       "pregunta": "¿Cómo puedo acceder a su sitio web?",
@@ -39,13 +40,13 @@ const RenderAcordion = () => {
     return (
         <div>
         <Navbar></Navbar>
-        <Accordion allowToggle>
+        <Accordion allowToggle className='acordeon'>
             {
                 preguntas_frecuentes.map((data)=>{
                     return(
-                    <AccordionItem>
+                    <AccordionItem className='acordion_contenido'>
                         <h2>
-                        <AccordionButton>
+                        <AccordionButton className='acordion_boton' _expanded={{ bg: 'tomato', color: 'white'}}>
                             <Box as="span" flex='1' textAlign='left'>
                             {data.pregunta}
                             </Box>
