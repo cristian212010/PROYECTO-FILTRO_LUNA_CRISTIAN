@@ -98,6 +98,7 @@ const Navbar = () => {
                             <Avatar size='md' name='' src={profile}></Avatar>
                         </WrapItem>
                     </Wrap>
+                    <button onClick={logOut}>Cerrar Sesión</button>
                 </div>
             </div>
             <>
