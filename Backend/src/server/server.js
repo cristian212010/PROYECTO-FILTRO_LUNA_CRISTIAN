@@ -6,6 +6,7 @@ import loginRoutes from '../routes/login.routes.js';
 import reportesRoutes from '../routes/reportes.routes.js';
 import areasRoutes from '../routes/areas.routes.js'
 import cargosRoutes from '../routes/cargos.routes.js';
+
 import fileUpload from 'express-fileupload';
 import swaggerUI from "swagger-ui-express";
 import swaggerDocument from '../swagger/swagger.json' assert {type: "json"}
@@ -22,7 +23,6 @@ class Server{
             reportes: '/reportes',
             areas : '/areas',
             cargos : '/cargos',
-            avatares : '/avatares'
         }
         this.middleware();
         this.routes();
