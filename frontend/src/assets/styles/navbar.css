@@ -13,11 +13,17 @@
     width: 30px;
 }
 
-.menu-header div:not(.divImg) {
+.menu-header .btn_navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
 
+}
+
+.menu-header div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .iconAdd {
@@ -69,4 +75,9 @@
 
 .iconConfig {
     color: black;
+}
+
+.User_Menu{
+    display: flex !important;
+    flex-direction: column !important;
 }
