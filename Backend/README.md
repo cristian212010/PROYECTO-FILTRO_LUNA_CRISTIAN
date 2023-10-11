@@ -6,15 +6,15 @@ A continuación, encontrarás información detallada sobre los archivos, las rut
 
 ### connection.js
 
-# Este archivo establece la conexión a la base de datos MongoDB. Utiliza la librería mongodb y carga la configuración desde las variables de entorno. La función connect() se encarga de conectarse a la base de datos y devuelve una instancia de la base de datos.
+ Este archivo establece la conexión a la base de datos MongoDB. Utiliza la librería mongodb y carga la configuración desde las variables de entorno. La función connect() se encarga de conectarse a la base de datos y devuelve una instancia de la base de datos.
 
 ### server.js
 
-# El archivo server.js contiene la configuración y el inicio del servidor Express. Se define una clase Server que configura el servidor, middleware como CORS y JSON parsing, y define rutas para los recursos de indicadores, usuarios, reportes, áreas y cargos. También se agrega la documentación de la API utilizando Swagger UI.
+ El archivo server.js contiene la configuración y el inicio del servidor Express. Se define una clase Server que configura el servidor, middleware como CORS y JSON parsing, y define rutas para los recursos de indicadores, usuarios, reportes, áreas y cargos. También se agrega la documentación de la API utilizando Swagger UI.
 
 ### index.js
 
-# Este archivo es el punto de entrada principal del backend. Carga la configuración y crea una instancia del servidor, luego la inicia para escuchar las solicitudes entrantes.
+ Este archivo es el punto de entrada principal del backend. Carga la configuración y crea una instancia del servidor, luego la inicia para escuchar las solicitudes entrantes.
 
 ## Controladores
 
@@ -60,11 +60,11 @@ A continuación, encontrarás información detallada sobre los archivos, las rut
 
 ### Generación de JWT (generateJWT.js)
 
-# Este archivo contiene una función que genera un token JWT después de la autenticación del usuario.
+ Este archivo contiene una función que genera un token JWT después de la autenticación del usuario.
 
 ### Validación de JWT (validateToken.js)
 
-# Este archivo define un middleware que valida el token JWT en las solicitudes entrantes y verifica la existencia y el estado del usuario en la base de datos.
+ Este archivo define un middleware que valida el token JWT en las solicitudes entrantes y verifica la existencia y el estado del usuario en la base de datos.
 
 ## Rutas
 
@@ -110,9 +110,9 @@ A continuación, encontrarás información detallada sobre los archivos, las rut
 
 ## Configuración
 
-# El servidor utiliza variables de entorno para la configuración, incluyendo la cadena de conexión a la base de datos y la clave secreta o privada para la generación de tokens JWT.
+ El servidor utiliza variables de entorno para la configuración, incluyendo la cadena de conexión a la base de datos y la clave secreta o privada para la generación de tokens JWT.
 
-# Asegúrate de configurar estas variables de entorno antes de iniciar el servidor.
+ Asegúrate de configurar estas variables de entorno antes de iniciar el servidor.
 
 
 ## Contribuciones
