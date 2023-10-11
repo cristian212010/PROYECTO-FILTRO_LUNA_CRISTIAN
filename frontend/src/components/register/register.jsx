@@ -39,14 +39,6 @@ const Register = () => {
     });
   };
 
-  const avatarChange = (event) => {
-    const file = event.target.files[0];
-    setFormData({
-      ...formData,
-      avatar: file,
-    });
-  };
-
   const submitRegister = async (event) => {
     event.preventDefault();
     const data = new FormData();
