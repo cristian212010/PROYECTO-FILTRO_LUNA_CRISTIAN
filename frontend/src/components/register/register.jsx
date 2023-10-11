@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
-import logo from '../../assets/img/KARIO_LOGO.png';
+import logo from '../../assets/svg/kario.svg';
 import '../../assets/styles/register.css'
 
 const Register = () => {
@@ -61,7 +61,7 @@ const Register = () => {
       console.log('Enviando solicitud de registro con los siguientes datos:', data);
       const response = await axios.post('http://localhost:6996/usuarios/insert', data);
       console.log('Respuesta del servidor después de registrar:', response.data);
-      history.push('/login'); 
+      history.push('/login');
     } catch (error) {
       console.error('Error al registrar al usuario:', error);
     }
@@ -71,74 +71,76 @@ const Register = () => {
     <div className='background'>
       <div className='filter-login'>
         <div className='form-register'>
-          <img src={logo} alt="KARIO" className='logo-login' />
+          <img src={logo} alt="KARIO" className='logo-register' />
           <h2 className='h2-login'>Registro de Usuario</h2>
           <p className='p-login'>Por favor ingresa los siguientes datos para ingresar a la plataforma</p>
           {mensajeError && <p>{mensajeError}</p>}
-          <form onSubmit={submitRegister}>
-            <div className='div-input'>
-              <label>Nombre:</label>
-              <input
-                type="text"
-                name="nombre"
-                value={formData.nombre}
-                onChange={inputChange}
-                required
-                className='input-login'
-              />
-            </div>
-            <div className='div-input'>
-              <label>Apellido:</label>
-              <input
-                type="text"
-                name="apellido"
-                value={formData.apellido}
-                onChange={inputChange}
-                required
-                className='input-login'
-              />
-            </div>
-            <div className='div-input'>
-              <label>Usuario:</label>
-              <input
-                type="text"
-                name="usuario"
-                value={formData.usuario}
-                onChange={inputChange}
-                required
-                className='input-login'
-              />
-            </div>
-            <div className='div-input'>
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={inputChange}
-                required
-                className='input-login'
-              />
-            </div>
-            <div className='div-input'>
-              <label>Cargo:</label>
-              <select
-                name="cargo"
-                value={formData.cargo}
-                onChange={inputChange}
-                required
-                className='input-login'
-              >
-                <option value="">Seleccionar Cargo</option>
-                {cargos.map((cargo) => (
-                  <option key={cargo._id} value={cargo._id}>
-                    {cargo.cargo}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <button type="submit" className='btn-login'>Registrar</button>
-          </form>
+          <div className='formulario'>
+            <form onSubmit={submitRegister}>
+              <div className='div-input'>
+                <label>Nombre:</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={inputChange}
+                  required
+                  className='input-login'
+                />
+              </div>
+              <div className='div-input'>
+                <label>Apellido:</label>
+                <input
+                  type="text"
+                  name="apellido"
+                  value={formData.apellido}
+                  onChange={inputChange}
+                  required
+                  className='input-login'
+                />
+              </div>
+              <div className='div-input'>
+                <label>Usuario:</label>
+                <input
+                  type="text"
+                  name="usuario"
+                  value={formData.usuario}
+                  onChange={inputChange}
+                  required
+                  className='input-login'
+                />
+              </div>
+              <div className='div-input'>
+                <label>Password:</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={inputChange}
+                  required
+                  className='input-login'
+                />
+              </div>
+              <div className='div-input'>
+                <label>Cargo:</label>
+                <select
+                  name="cargo"
+                  value={formData.cargo}
+                  onChange={inputChange}
+                  required
+                  className='input-login'
+                >
+                  <option value="">Seleccionar Cargo</option>
+                  {cargos.map((cargo) => (
+                    <option key={cargo._id} value={cargo._id}>
+                      {cargo.cargo}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <button type="submit" className='btn-login'>Registrar</button>
+            </form>
+          </div>
           <p className='p-registrar'>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
         </div>
       </div>
