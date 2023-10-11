@@ -1,15 +1,15 @@
-.menu-header{
+.menu-header {
     display: flex;
     justify-content: space-evenly;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
     border-bottom: 1px solid #707070;
 }
 
-.perfil-header{
+.perfil-header {
     display: flex;
 }
 
-.logo-navbar{
+.logo-navbar {
     width: 30px;
 }
 
@@ -17,39 +17,56 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
 }
 
 .iconAdd {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     color: #FF6F2C;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 
 .iconRefresh {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     color: #FF6F2C;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 
 .iconDelete {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     color: #FF6F2C;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 
 .iconBug {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     color: #FF6F2C;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 
 .iconHelp {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     color: #FF6F2C;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 
 .iconNotificacion {
     font-size: 20px;
     margin-left: 13px;
+    color: black;
+    margin-right: 13px;
+}
+
+.img {
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.iconConfig {
+    color: black;
 }
