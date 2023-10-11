@@ -8,6 +8,8 @@ import Authentication from "./components/authentication/authentication";
 import Register from "./components/register/register";
 import Loader from "./components/loader/loader";
 import Reportes from "./components/reportes/reportes"
+import Indicadores from "./components/indicadores-form/indicadores";
+import Reportar from "./components/reportar-form/reportar";
 import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
@@ -20,7 +22,8 @@ function App() {
         <Authentication path="/home" component={Home} />
 
         <Route path="/loader" exact component={Loader} /> 
-
+        <Route path='/crearIndicadores' component={Indicadores} />
+        <Route path='/crearReportes' component={Reportar} />
         <Authentication path="/reports" component={Reportes} />
         <Redirect from="/" to="/home" />
       </Switch>

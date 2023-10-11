@@ -31,6 +31,7 @@ const insertData = async (req, res) => {
         const data = req.body
         data.indicador = new ObjectId(data.indicador);
         data.documentalista = new ObjectId(data.documentalista);
+        data.estado = true;
         const response = await db.collection("reportes").insertOne(data);
         res.json({
             data,

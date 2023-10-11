@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../assets/img/KARIO_LOGO.png";
 import profile from "../../assets/img/default-avatar.png"
+import { Link } from 'react-router-dom';
 import "../../assets/styles/navbar.css";
 import * as MdIcons from 'react-icons/md';
 import * as Io5Icons from 'react-icons/io5';
@@ -42,6 +43,13 @@ const Navbar = () => {
     else if (window.location.pathname === "/home") {
         url = "indicadores"
     }
+    else if (window.location.pathname === "/crearIndicadores") {
+        url = "indicadores"
+    }
+    else if (window.location.pathname === "/crearReportes") {
+        url = "indicadores"
+    }
+    
 
     useEffect(() => {
         axios.get(`http://localhost:6996/${url}/getAll`)
@@ -90,15 +98,19 @@ const Navbar = () => {
                 </div>
                 <div onClick={onOpen}>
                     <MdIcons.MdDeleteForever className="iconDelete"></MdIcons.MdDeleteForever>
-                    <a href="">Eliminar</a>
+                    <a>Eliminar</a>
                 </div>
-                <div>
-                    <img src={logo} className="logo-navbar"></img>
-                </div>
-                <div>
-                    <RiIcons.RiBug2Fill className="iconBug"></RiIcons.RiBug2Fill>
-                    <a href="">Reportar</a>
-                </div>
+                <Link to='/home'>
+                    <div>
+                        <img src={logo} className="logo-navbar"></img>
+                    </div>
+                </Link>
+                <Link to='crearReportes'>
+                    <div>
+                        <RiIcons.RiBug2Fill className="iconBug"></RiIcons.RiBug2Fill>
+                        <a href="">Reportar</a>
+                    </div>
+                </Link>
                 <div>
                     <IoIcons.IoIosHelpCircle className="iconHelp"></IoIcons.IoIosHelpCircle>
                     <a href="">Ayuda</a>
@@ -145,14 +157,31 @@ const Navbar = () => {
                                     APIData.map((data) => {
                                         if (window.location.pathname === "/reports") {
                                             dato = data.problema
+                                            return (
+                                                <option value={data._id}>{dato}</option>
+    
+                                            )
                                         }
                                         else if (window.location.pathname === "/home") {
                                             dato = data.indicador
+                                            return (
+                                                <option value={data._id}>{dato}</option>
+    
+                                            )
                                         }
-                                        return (
-                                            <option value={data._id}>{dato}</option>
-
-                                        )
+                                        else if (window.location.pathname === "/crearIndicadores") {
+                                            dato = "aqui no hay nada que borrar, lo tengo vigilado"
+                                            return (
+                                                <option value="">{dato}</option>
+                                            )
+                                        }
+                                        else if (window.location.pathname === "/crearReportes") {
+                                            dato = "aqui no hay nada que borrar, lo tengo vigilado"
+                                            return (
+                                                <option value="">{dato}</option>
+                                            )
+                                        }
+                                        
                                     })
                                 }
                             </Select>
