@@ -1,6 +1,6 @@
 # Frontend del Proyecto
 
-LLa aplicación está desarrollada en React y utiliza varias librerías y componentes para lograr sus funcionalidades. A continuación, se detalla la estructura del proyecto y sus componentes principales.
+La aplicación está desarrollada en React y utiliza varias librerías y componentes para lograr sus funcionalidades. A continuación, se detalla la estructura del proyecto y sus componentes principales.
 
 ## Estructura de Directorios
 
