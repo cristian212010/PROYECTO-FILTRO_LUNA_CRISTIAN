@@ -45,7 +45,7 @@ const Home = () => {
               APIData.map((data) => {
                 return (
                   <tbody>
-                    <tr>
+                    <tr className='filas'>
                       <td>{data.indicador}</td>
                       <td className="descripcion">{data.descripcion}</td>
                       <td>{data.categoria}</td>
@@ -55,7 +55,9 @@ const Home = () => {
                       <td>{data.frecuencia}</td>
                       <td> <CircularProgress value={data.cumplimiento} color={data.cumplimiento < 50 ? "red" : (data.cumplimiento >= 50 && data.cumplimiento <= 75) ? "orange" : "green"}><CircularProgressLabel><p className='porcentaje'><strong>{data.cumplimiento}%</strong></p></CircularProgressLabel> </CircularProgress></td>
                       <td>{data.area[0].nombre}</td>
-                      <div className='icon'><GiIcons.GiHamburgerMenu></GiIcons.GiHamburgerMenu></div>
+                      <div className='icon'>
+                        <GiIcons.GiHamburgerMenu></GiIcons.GiHamburgerMenu>
+                      </div>
                     </tr>
                     <tr className="spacer">
                       <td colspan="100"></td>
