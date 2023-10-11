@@ -13,7 +13,7 @@
 .tablita {
     margin-top: 1.2rem;
     text-align: center;
-    max-width: 1600px;
+    max-width: 1650px;
     width: 100%;
     
 }
@@ -115,4 +115,8 @@ table.tablita {
 
 tbody tr td:not(.descripcion) {
     padding: 0px 20px 0px 20px;
+}
+
+thead tr th {
+    padding: 0px 10px 0px 10px;
 }
