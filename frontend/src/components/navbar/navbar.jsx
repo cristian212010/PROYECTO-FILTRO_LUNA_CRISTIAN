@@ -42,6 +42,9 @@ const Navbar = () => {
     else if (window.location.pathname === "/home") {
         url = "indicadores"
     }
+    else if (window.location.pathname === "/help") {
+        url = "indicadores"
+    }
 
     useEffect(() => {
         axios.get(`http://localhost:6996/${url}/getAll`)
@@ -142,14 +145,26 @@ const Navbar = () => {
                                     APIData.map((data) => {
                                         if (window.location.pathname === "/reports") {
                                             dato = data.problema
+                                            return (
+                                                <option value={data._id}>{dato}</option>
+    
+                                            )
                                         }
                                         else if (window.location.pathname === "/home") {
                                             dato = data.indicador
+                                            return (
+                                                <option value={data._id}>{dato}</option>
+    
+                                            )
                                         }
-                                        return (
-                                            <option value={data._id}>{dato}</option>
-
-                                        )
+                                        else if (window.location.pathname === "/help") {
+                                            dato = "aqui no hay nada que borrar, lo tengo vigilado"
+                                            return (
+                                                <option value="">{dato}</option>
+    
+                                            )
+                                        }
+                                        
                                     })
                                 }
                             </Select>

@@ -9,6 +9,7 @@ import Register from "./components/register/register";
 import Loader from "./components/loader/loader";
 import Reportes from "./components/reportes/reportes"
 import { ChakraProvider } from '@chakra-ui/react'
+import RenderAcordion from "./components/ayuda/ayuda";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
+        <Route path="/help" exact component={RenderAcordion} />
         <Authentication path="/home" component={Home} />
 
         <Route path="/loader" exact component={Loader} /> 

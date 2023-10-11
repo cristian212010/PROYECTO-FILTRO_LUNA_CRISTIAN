@@ -1,0 +1,12 @@
+
+.acordeon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    border: solid 0.5px #ff9553;
+}
+
