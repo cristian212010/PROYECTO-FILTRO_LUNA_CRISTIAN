@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory, Link } from 'react-router-dom'; 
-import logo from '../../assets/img/KARIO_LOGO.png';
+import { useHistory, Link } from 'react-router-dom';
+import logo from '../../assets/svg/kario.svg';
 import '../../assets/styles/login.css';
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
   });
 
   const [mensajeError, setMensajeError] = useState('');
-  const [userData, setUserData] = useState(null); 
+  const [userData, setUserData] = useState(null);
 
   const changeManager = (event) => {
     const { name, value } = event.target;
@@ -31,27 +31,27 @@ const Login = () => {
 
   const submitLogin = async (event) => {
     event.preventDefault();
-  
+
     try {
       const response = await axios.post('http://localhost:6996/usuarios/login', formData);
       const token = response.data.token;
       localStorage.setItem('token', token);
-  
+
       console.log('Inicio de sesión exitoso', response.data);
       const userResponse = await axios.get(`http://localhost:6996/usuarios/getOne/${formData.usuario}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       if (userResponse.status === 200 && userResponse.data.length > 0) {
         const userDataFromServer = userResponse.data[0];
-  
+
         if (userDataFromServer.nombre && userDataFromServer.apellido && userDataFromServer.avatar) {
           localStorage.setItem('nombre', userDataFromServer.nombre);
           localStorage.setItem('apellido', userDataFromServer.apellido);
           localStorage.setItem('avatar', userDataFromServer.avatar);
-  
+
           setTimeout(() => {
             redirectLoader();
           }, 500);
@@ -70,8 +70,6 @@ const Login = () => {
       }
     }
   };
-  
-  
 
   return (
     <div className='background'>
@@ -106,7 +104,7 @@ const Login = () => {
             </div>
             <button type="submit" className='btn-login'>Iniciar Sesión</button>
           </form>
-        
+
           <p className='p-registrar'>¿No tienes cuenta? <Link to="/register">Crear una</Link></p>
           <p className='p-problemas'>Tienes problemas para ingresar? Por favor contactarse con asistencia técnica lo más pronto posible</p>
         </div>
