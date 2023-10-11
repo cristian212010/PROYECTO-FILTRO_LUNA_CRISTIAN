@@ -15,7 +15,7 @@ const Loader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setRedirect(true);
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -24,7 +24,7 @@ const Loader = () => {
     if (nombre && apellido && avatar) {
       const timer = setTimeout(() => {
         setRedirect(true);
-      }, 2000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [nombre, apellido, avatar]);
@@ -47,7 +47,7 @@ const Loader = () => {
         <div className='form-loeader'>
           <img src={logo} alt="KARIO" className='logo-login' />
           <h2 className='h2-login'>Bienvenido, {nombre} {apellido}</h2>
-          <img src={require('../../assets/img/default-avatar.png')} alt="Avatar" />
+          <img className='avatarr'src={avatar} alt="Avatar" />
           <p>Cargando...</p>
         </div>
       </div>

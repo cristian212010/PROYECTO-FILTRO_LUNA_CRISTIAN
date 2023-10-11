@@ -41,10 +41,18 @@ const Register = () => {
 
   const avatarChange = (event) => {
     const file = event.target.files[0];
-    setFormData({
-      ...formData,
-      avatar: file,
-    });
+    const reader = new FileReader();
+  
+    reader.onload = (e) => {
+      const base64Image = e.target.result;
+      setFormData({
+        ...formData,
+        avatar: base64Image,
+      });
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const submitRegister = async (event) => {
@@ -56,16 +64,17 @@ const Register = () => {
     data.append('password', formData.password);
     data.append('cargo', formData.cargo);
     data.append('avatar', formData.avatar);
-
+  
     try {
       console.log('Enviando solicitud de registro con los siguientes datos:', data);
       const response = await axios.post('http://localhost:6996/usuarios/insert', data);
       console.log('Respuesta del servidor después de registrar:', response.data);
-      history.push('/login'); 
+      history.push('/login');
     } catch (error) {
       console.error('Error al registrar al usuario:', error);
     }
   };
+  
 
   return (
     <div className='background'>
@@ -136,6 +145,15 @@ const Register = () => {
                   </option>
                 ))}
               </select>
+            </div>
+            <div className='div-input'>
+              <label>Avatar:</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={avatarChange}
+                className='input-login'
+              />
             </div>
             <button type="submit" className='btn-login'>Registrar</button>
           </form>

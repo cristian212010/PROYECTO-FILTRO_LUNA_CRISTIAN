@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom"
 import logo from "../../assets/img/KARIO_LOGO.png";
-import profile from "../../assets/img/default-avatar.png"
 import "../../assets/styles/navbar.css";
 import * as MdIcons from 'react-icons/md';
 import * as Io5Icons from 'react-icons/io5';
@@ -73,7 +72,7 @@ const Navbar = () => {
     };
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const avatar = localStorage.getItem('avatar');
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -112,7 +111,7 @@ const Navbar = () => {
                             <MenuButton background={"transparent"} as={Button} >
                                 <Wrap>
                                     <WrapItem>
-                                        <Avatar size='md' name='' src={profile}></Avatar>
+                                        <Avatar size='md' name='' src={avatar}></Avatar>
                                     </WrapItem>
                                 </Wrap>
                             </MenuButton>

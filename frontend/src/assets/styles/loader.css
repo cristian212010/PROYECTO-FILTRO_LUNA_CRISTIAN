@@ -13,3 +13,8 @@
     text-align: center;
     padding: 0.5rem 0 0.5rem 0;
 }
+.avatarr{
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 100%;
+}
