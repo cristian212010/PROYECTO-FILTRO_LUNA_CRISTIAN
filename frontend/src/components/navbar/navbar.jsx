@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom"
 import logo from "../../assets/img/KARIO_LOGO.png";
-import profile from "../../assets/img/default-avatar.png"
 import { Link } from 'react-router-dom';
 import "../../assets/styles/navbar.css";
 import * as MdIcons from 'react-icons/md';
