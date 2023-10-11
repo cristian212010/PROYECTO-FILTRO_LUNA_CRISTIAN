@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom"
 import logo from "../../assets/img/KARIO_LOGO.png";
 import profile from "../../assets/img/default-avatar.png"
 import "../../assets/styles/navbar.css";
@@ -80,33 +81,33 @@ const Navbar = () => {
     return (
         <div>
             <div className="menu-header">
-                <div>
+                <div className="btn_navbar">
                     <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
                     <a href="">Añadir</a>
                 </div>
-                <div>
+                <div className="btn_navbar">
                     <MdIcons.MdOutlineRefresh className="iconRefresh"></MdIcons.MdOutlineRefresh>
                     <a href="">Refrescar</a>
                 </div>
-                <div onClick={onOpen}>
+                <div className="btn_navbar" onClick={onOpen}>
                     <MdIcons.MdDeleteForever className="iconDelete"></MdIcons.MdDeleteForever>
                     <a href="">Eliminar</a>
                 </div>
-                <div>
-                    <img src={logo} className="logo-navbar"></img>
+                <div className="btn_navbar">
+                    <a href="/home"><img src={logo} className="logo-navbar"></img></a>
                 </div>
-                <div>
+                <div className="btn_navbar">
                     <RiIcons.RiBug2Fill className="iconBug"></RiIcons.RiBug2Fill>
-                    <a href="">Reportar</a>
+                    <a href="/reports">Reportar</a>
                 </div>
-                <div>
+                <div className="btn_navbar">
                     <IoIcons.IoIosHelpCircle className="iconHelp"></IoIcons.IoIosHelpCircle>
-                    <a href="">Ayuda</a>
+                    <a href="/help">Ayuda</a>
                 </div>
-                <div className="perfil-header">
+                <div className="btn_navbar">
                     <a href=""><BsIcons.BsFillGearFill className="iconConfig"></BsIcons.BsFillGearFill></a>
                     <a href=""><MdIcons.MdNotificationsActive className="iconNotificacion"></MdIcons.MdNotificationsActive></a>
-                    <div>
+                    <div className="User_Menu">
                         <Menu>
                             <MenuButton background={"transparent"} as={Button} >
                                 <Wrap>
@@ -115,12 +116,9 @@ const Navbar = () => {
                                     </WrapItem>
                                 </Wrap>
                             </MenuButton>
-                            <MenuList  className="menu-profile">
-                                <MenuItem>Download</MenuItem>
-                                <MenuItem>Create a Copy</MenuItem>
-                                <MenuItem>Mark as Draft</MenuItem>
-                                <MenuItem>Delete</MenuItem>
-                                <MenuItem>Attend a Workshop</MenuItem>
+                            <MenuList display="flex" flexDirection="colum">
+                                <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
+                                <MenuItem><a href="/editProfile">Editar Perfil</a></MenuItem>
                             </MenuList>
                         </Menu>
 
