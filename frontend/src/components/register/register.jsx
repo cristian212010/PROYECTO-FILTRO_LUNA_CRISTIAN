@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
-import logo from '../../assets/svg/kario.svg';
+import logo from '../../assets/img/KARIO_LOGO.png';
 import '../../assets/styles/register.css'
 
 const Register = () => {
@@ -75,11 +75,12 @@ const Register = () => {
     }
   };
   
+
   return (
     <div className='background'>
       <div className='filter-login'>
         <div className='form-register'>
-          <img src={logo} alt="KARIO" className='logo-register' />
+          <img src={logo} alt="KARIO" className='logo-login' />
           <h2 className='h2-login'>Registro de Usuario</h2>
           <p className='p-login'>Por favor ingresa los siguientes datos para ingresar a la plataforma</p>
           {mensajeError && <p>{mensajeError}</p>}
@@ -145,12 +146,15 @@ const Register = () => {
                 ))}
               </select>
             </div>
-            <input
+            <div className='div-input'>
+              <label>Avatar:</label>
+              <input
                 type="file"
                 accept="image/*"
                 onChange={avatarChange}
                 className='input-login'
               />
+            </div>
             <button type="submit" className='btn-login'>Registrar</button>
           </form>
           <p className='p-registrar'>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
