@@ -14,7 +14,7 @@ const Home = () => {
       .then((response) => {
         setAPIData(response.data);
       })
-  })
+  },[])
 
   return (
     <div>
