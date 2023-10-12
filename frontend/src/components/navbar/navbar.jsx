@@ -89,26 +89,42 @@ const Navbar = () => {
         }
         else if (window.location.pathname === "/help") {
             return(
-                <div className="btn_navbar">
-                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
-                    <a className="navbar-btn">Añadir</a>
-                </div>
+                <Link to='/crearIndicadores'>
+                    <div className="btn_navbar">
+                        <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                        <a className="navbar-btn">Añadir</a>
+                    </div>
+                </Link>
             )
         }
         else if (window.location.pathname === "/crearIndicadores") {
             return(
-                <div className="btn_navbar">
-                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
-                    <a className="navbar-btn">Añadir</a>
-                </div>
+                <Link to='/crearReportes'>
+                    <div className="btn_navbar">
+                        <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                        <a className="navbar-btn">Añadir</a>
+                    </div>
+                </Link>
             )
         }
         else if (window.location.pathname === "/crearReportes") {
             return(
-                <div className="btn_navbar">
-                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
-                    <a className="navbar-btn">Añadir</a>
-                </div>
+                <Link to='/crearIndicadores'>
+                    <div className="btn_navbar">
+                        <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                        <a className="navbar-btn">Añadir</a>
+                    </div>
+                </Link>
+            )
+        }
+        else if (window.location.pathname === "/editProfile") {
+            return(
+                <Link to='/crearIndicadores'>
+                    <div className="btn_navbar">
+                        <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                        <a className="navbar-btn">Añadir</a>
+                    </div>
+                </Link>
             )
         }
     };
@@ -146,7 +162,7 @@ const Navbar = () => {
                 }
                 <div className="btn_navbar">
                     <MdIcons.MdOutlineRefresh className="iconRefresh"></MdIcons.MdOutlineRefresh>
-                    <a className="navbar-btn">Refrescar</a>
+                    <a href="" className="navbar-btn">Refrescar</a>
                 </div>
                 <div className="btn_navbar" onClick={onOpen}>
                     <MdIcons.MdDeleteForever className="iconDelete"></MdIcons.MdDeleteForever>
