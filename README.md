@@ -47,7 +47,8 @@ Para configurar el proyecto, sigue estos pasos:
 
 ## 📃 Documentación Swagger
 
-- [Documentación Swagger](./Backend/src/swagger/) - Documentación completa de la API, que incluye operaciones CRUD por CURD.
+- **[Documentación Swagger](./Backend/src/swagger/)** - Documentación completa de la API, que incluye operaciones CRUD por CURD.
+  - http://localhost:6996/api-doc/
 
 ## 📋 Requerimientos Previos
 
