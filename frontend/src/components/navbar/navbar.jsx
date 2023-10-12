@@ -62,6 +62,54 @@ const Navbar = () => {
 
     }, []);
 
+    const BtnAdd = () => {
+        if (window.location.pathname === "/reports") {
+            return(
+                <Link to='/crearReportes'>
+                    <div className="btn_navbar">
+                        <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                        <a className="navbar-btn">Añadir</a>
+                    </div>
+                </Link>
+            )
+        }
+        else if (window.location.pathname === "/home") {
+            return(
+                <Link to='/crearIndicadores'>
+                    <div className="btn_navbar">
+                        <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                        <a className="navbar-btn">Añadir</a>
+                    </div>
+                </Link>
+            )
+            
+        }
+        else if (window.location.pathname === "/help") {
+            return(
+                <div className="btn_navbar">
+                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                    <a className="navbar-btn">Añadir</a>
+                </div>
+            )
+        }
+        else if (window.location.pathname === "/crearIndicadores") {
+            return(
+                <div className="btn_navbar">
+                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                    <a className="navbar-btn">Añadir</a>
+                </div>
+            )
+        }
+        else if (window.location.pathname === "/crearReportes") {
+            return(
+                <div className="btn_navbar">
+                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
+                    <a className="navbar-btn">Añadir</a>
+                </div>
+            )
+        }
+    };
+
     const getData = () => {
         axios.get(`http://localhost:6996/${url}/getAll`)
             .then((getData) => {
@@ -90,10 +138,9 @@ const Navbar = () => {
     return (
         <div>
             <div className="menu-header">
-                <div className="btn_navbar">
-                    <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
-                    <a className="navbar-btn">Añadir</a>
-                </div>
+                {
+                    <BtnAdd></BtnAdd>
+                }
                 <div className="btn_navbar">
                     <MdIcons.MdOutlineRefresh className="iconRefresh"></MdIcons.MdOutlineRefresh>
                     <a className="navbar-btn">Refrescar</a>

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import "../../assets/styles/home.css";
+import "../../assets/styles/reportes.css";
 import Navbar from '../navbar/navbar';
 
 
 const Reportes = () => {
 
   const [APIData, setAPIData] = useState([]);
-
+  const Avatar = localStorage.getItem("avatar");
+  
   useEffect(() => {
     axios.get(`http://localhost:6996/reportes/getAll`)
       .then((response) => {
@@ -27,33 +28,31 @@ const Reportes = () => {
           <h1>Panel de Reportes</h1>
           <p>Aqui puedes visualizar los Reportes ocurridos y los añadidos Recientemente por tu equipo de trabajo.</p>
         </div>
-        <div>
-          <table class="tablita">
-            <thead>
-            <tr>
-              <th>Problema</th>
-              <th>Reportado Por</th>
-              <th>Fecha_Reporte</th>
-              <th>Indicador Afectado</th>
-            </tr>
-            </thead>
+        <div className='cardContainer'>
             {
               APIData.map((data) => {
                 return (
                   
-                  <tbody>
-                    <tr>
-                    <td>{data.problema}</td>
-                    <td>{data.documentalista[0].nombre} {data.documentalista[0].apellido}</td>
-                    <td>{data.fecha_reporte}</td>
-                    <td>{data.indicador[0].indicador}</td>
-                    </tr>
-                  </tbody>
+                  <div className="card">
+                    <div className="img"><img src={Avatar} alt="" /></div>
+                    <span>Fecha Reporte <hr/>
+                    {data.fecha_reporte}</span>
+                    <p className="info">
+                      Indicador: {data.indicador[0].indicador}
+                    </p>
+                    <p className="info">
+                      Problema: {data.problema}
+                    </p>
+
+                    <div className='infoUser'>
+                      Reprotado por: <hr/>
+                      {data.documentalista[0].nombre} {data.documentalista[0].apellido}
+                    </div>
+                  </div>
               
                 )
               })
             }
-          </table>
         </div>
         <Link to='/crearReportes'>
             <button className='btn-add'>Añadir Elementos</button>
