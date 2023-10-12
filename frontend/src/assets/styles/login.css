@@ -88,3 +88,10 @@
     color: #888;
     font-weight: 300;
 }
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s; 
+  }
+  

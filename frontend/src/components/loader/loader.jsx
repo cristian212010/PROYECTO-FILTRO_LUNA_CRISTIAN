@@ -47,8 +47,14 @@ const Loader = () => {
         <div className='form-loeader'>
           <img src={logo} alt="KARIO" className='logo-login' />
           <h2 className='h2-login'>Bienvenido, {nombre} {apellido}</h2>
-          <img className='avatarr'src={avatar} alt="Avatar" />
-          <p>Cargando...</p>
+          <img className='avatarr'src={avatar} alt="Avatar" />    
+          <div class="loadingspinner">
+            <div id="square1"></div>
+            <div id="square2"></div>
+            <div id="square3"></div>
+            <div id="square4"></div>
+            <div id="square5"></div>
+          </div>
         </div>
       </div>
     </div>

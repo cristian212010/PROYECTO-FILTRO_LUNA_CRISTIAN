@@ -14,11 +14,14 @@ import { ChakraProvider } from '@chakra-ui/react'
 import RenderAcordion from "./components/ayuda/ayuda";
 import EditUser from "./components/editUser/editUser";
 import Ayuda from "./components/ayuda/ayuda";
+import LoaderInicio from "./components/loader/loader-inicio";
+
 function App() {
   return (
     <ChakraProvider>
     <Router>
       <Switch>
+        <Route path='/LoaderInicio' exact component={LoaderInicio}></Route>
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/help" exact component={RenderAcordion} />
