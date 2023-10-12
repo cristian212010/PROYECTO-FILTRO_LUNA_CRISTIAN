@@ -61,4 +61,28 @@ const updateData = async (req, res) => {
     }
 };
 
-export {getData,insertData,deleteData,updateData}
+const getOneData = async (req, res) =>{
+    try {
+        const db = await connet();
+        const cargo = req.params.cargo;
+        const response = await db.collection('cargos').aggregate([
+            {
+                $match: {cargo:cargo}
+            },
+            {
+                $lookup:{
+                    from: "areas",
+                    localField: "departamento",
+                    foreignField: "_id",
+                    as: "departamento"
+                }
+            }
+        ]).toArray();
+        res.json(response);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}
+
+
+export {getData,insertData,deleteData,updateData, getOneData}

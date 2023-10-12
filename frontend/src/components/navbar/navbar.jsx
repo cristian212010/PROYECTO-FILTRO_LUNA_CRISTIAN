@@ -51,6 +51,9 @@ const Navbar = () => {
     else if (window.location.pathname === "/crearReportes") {
         url = "indicadores"
     }
+    else if (window.location.pathname === "/editProfile") {
+        url = "indicadores"
+    }
     
 
     useEffect(() => {
@@ -136,8 +139,12 @@ const Navbar = () => {
                                 </Wrap>
                             </MenuButton>
                             <MenuList display="flex" flexDirection="colum">
-                                <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
-                                <MenuItem> <Link to="/editProfile">Editar perfil</Link></MenuItem>
+                                <Link to="/editProfile">
+                                    <MenuItem>Editar perfil </MenuItem>
+                                </Link>
+                                <Link to='/login'>
+                                    <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
+                                </Link>
                             </MenuList>
                         </Menu>
 
@@ -176,21 +183,19 @@ const Navbar = () => {
                                         }
                                         else if (window.location.pathname === "/help") {
                                             dato = "aqui no hay nada que borrar, lo tengo vigilado"
-                                            return (
-                                                <option value="">{dato}</option>
-                                            )
+
                                         }
                                         else if (window.location.pathname === "/crearIndicadores") {
                                             dato = "aqui no hay nada que borrar, lo tengo vigilado"
-                                            return (
-                                                <option value="">{dato}</option>
-                                            )
+
                                         }
                                         else if (window.location.pathname === "/crearReportes") {
                                             dato = "aqui no hay nada que borrar, lo tengo vigilado"
-                                            return (
-                                                <option value="">{dato}</option>
-                                            )
+
+                                        }
+                                        else if (window.location.pathname === "/editProfile") {
+                                            dato = "aqui no hay nada que borrar, lo tengo vigilado"
+
                                         }
                                         
                                     })

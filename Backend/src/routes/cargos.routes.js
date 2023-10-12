@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { getData, insertData, deleteData, updateData } from '../controllers/cargos.controllers.js';
+import { getData, insertData, deleteData, updateData, getOneData } from '../controllers/cargos.controllers.js';
 
 const router = Router();
 
 
 router.get('/getAll', getData);
+router.get('/getOne/:cargo', getOneData);
 
 router.post('/insert', [
     check("cargo", "Cargo no valido").not().isEmpty(),

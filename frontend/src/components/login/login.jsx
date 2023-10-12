@@ -53,7 +53,8 @@ const Login = () => {
           localStorage.setItem('avatar', userDataFromServer.avatar);
           localStorage.setItem('_id', userDataFromServer._id);
           localStorage.setItem('usuario', userDataFromServer.usuario);
-          localStorage.setItem('cargo', userDataFromServer.cargo[0].cargo);
+          const cargoJson = JSON.stringify(userDataFromServer.cargo)
+          localStorage.setItem('cargo', cargoJson);
 
           setTimeout(() => {
             redirectLoader();
