@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory, Link } from 'react-router-dom';
+import Navbar from '../navbar/navbar';
+import '../../assets/styles/profile.css';
 
 const EditUser = () => {
   const history = useHistory();
@@ -13,6 +15,10 @@ const EditUser = () => {
   });
 
   const [cargos, setCargos] = useState([]);
+  const [cargoLocal, setCargoLocal] = useState([]);
+  const selectCargoId = cargoLocal.length > 0 ? cargoLocal[0]._id : '';
+  const selectCargoNombre = cargoLocal.length > 0 ? cargoLocal[0].cargo : '';
+  formData.cargo = selectCargoId;
   const [mensajeError, setMensajeError] = useState('');
 
   useEffect(() => {
@@ -32,24 +38,24 @@ const EditUser = () => {
     const usuario = localStorage.getItem('usuario');
     const nombre = localStorage.getItem('nombre');
     const apellido = localStorage.getItem('apellido');
-    const cargo = localStorage.getItem('cargo');
+    const cargo = JSON.parse(localStorage.getItem('cargo'));
+    setCargoLocal(cargo)
     const avatar = localStorage.getItem('avatar');
+    console.log(selectCargoId);
 
     if (usuario) {
       setFormData({
         usuario,
         nombre,
         apellido,
-        cargo: cargo || null, 
+        cargo, 
         avatar,
       });
       axios.get(`http://localhost:6996/usuarios/getOne/${usuario}`).then((response) => {
         const userData = response.data[0];
         if (userData) {
-          const userCargo = userData.cargo ? userData.cargo._id : '';
           setFormData((prevData) => ({
-            ...prevData,
-            cargo: userCargo,
+            ...prevData
           }));
         }
       });
@@ -101,6 +107,10 @@ const EditUser = () => {
       localStorage.setItem('nombre', formData.nombre);
       localStorage.setItem('apellido', formData.apellido);
       localStorage.setItem('avatar', formData.avatar);
+      await axios.put(`http://localhost:6996/cargos/getOne/${formData.cargo}`)
+      .then((response) =>{
+        localStorage.setItem('cargo', response);
+      });
 
       history.push('/home');
     } catch (error) {
@@ -111,66 +121,85 @@ const EditUser = () => {
 
   return (
     <div>
-      <h2>Editar Perfil</h2>
-      {mensajeError && <p>{mensajeError}</p>}
-      <form onSubmit={submitEdit}>
-        <div>
-          <label>Nombre:</label>
-          <input
-            type="text"
-            name="nombre"
-            value={formData.nombre}
-            onChange={inputChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Apellido:</label>
-          <input
-            type="text"
-            name="apellido"
-            value={formData.apellido}
-            onChange={inputChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Usuario:</label>
-          <input
-            type="text"
-            name="usuario"
-            value={formData.usuario}
-            readOnly
-          />
-        </div>
-        <div>
-          <label>Cargo:</label>
-          <select
-            name="cargo"
-            value={formData.cargo}
-            onChange={inputChange}
-            required
-          >
-            <option value=''>Seleccionar Cargo</option>
-            {cargos.map((cargo) => (
-              <option key={cargo._id} value={cargo._id}>
-                {cargo.cargo}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Avatar:</label>
-          {formData.avatar && <img src={formData.avatar} alt="Avatar" />}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={avatarChange}
-          />
-        </div>
-        <button type="submit">Guardar Cambios</button>
-        <Link to="/home">Regresar</Link>
-      </form>
+      <Navbar></Navbar>
+      <div className="form-container">
+        <form className="form" onSubmit={submitEdit}>
+        <span className="heading">Editar Perfil</span>
+        {mensajeError && <p>{mensajeError}</p>}
+          <div className="input-fields">
+            <div className="input-indicadores">
+              <label>Nombre:</label>
+              <input
+                type="text"
+                name="nombre"
+                value={formData.nombre}
+                onChange={inputChange}
+                className="input"
+                required
+              />
+              <label>Apellido:</label>
+              <input
+                type="text"
+                name="apellido"
+                value={formData.apellido}
+                onChange={inputChange}
+                className="input"
+                required
+              />
+            </div>
+            <div className="input-indicadores">
+              <label>Usuario:</label>
+              <input
+                type="text"
+                name="usuario"
+                value={formData.usuario}
+                className="input"
+                readOnly
+              />
+              <label>Cargo:</label>
+              <select
+                name="cargo"
+                value={formData.cargo}
+                onChange={inputChange}
+                className="input"
+                required
+              >
+                <option value={selectCargoId}>{selectCargoNombre}</option>
+                {cargos.map((cargo) => (
+                  <option key={cargo._id} value={cargo._id}>
+                    {cargo.cargo}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="custum-file-upload" for="file">
+            <div class="icon">
+            {formData.avatar && <img className='img-profile' src={formData.avatar} alt="Avatar" />}
+            </div>
+            <div class="text">
+              <span>Click to upload image</span>
+              </div>
+              <input
+              type="file"
+              id='file'
+              accept="image/*"
+              onChange={avatarChange}
+              className="input"
+              />
+            </label>
+          </div>
+          <div class="button-container">
+            <button type="submit" class="send-button">Guardar Cambios</button>
+            <div class="reset-button-container">
+              <div id="reset-btn" class="reset-button"><Link to="/home">Regresar</Link></div>
+            </div>
+          </div>
+          
+          
+        </form>
+      </div>
     </div>
   );
 };
