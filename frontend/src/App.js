@@ -13,6 +13,7 @@ import Reportar from "./components/reportar-form/reportar";
 import { ChakraProvider } from '@chakra-ui/react'
 import RenderAcordion from "./components/ayuda/ayuda";
 import EditUser from "./components/editUser/editUser";
+import Ayuda from "./components/ayuda/ayuda";
 function App() {
   return (
     <ChakraProvider>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/loader" exact component={Loader} /> 
         <Route path='/crearIndicadores' component={Indicadores} />
         <Route path='/crearReportes' component={Reportar} />
+        <Route path='/help' component={Ayuda} />
         <Authentication path="/reports" component={Reportes} />
         <Route path="/editProfile" exact component={EditUser} />
         <Redirect from="/" to="/home" />

@@ -92,34 +92,40 @@ const Navbar = () => {
             <div className="menu-header">
                 <div className="btn_navbar">
                     <Io5Icons.IoAddCircleSharp className="iconAdd"></Io5Icons.IoAddCircleSharp>
-                    <a href="">Añadir</a>
+                    <a className="navbar-btn">Añadir</a>
                 </div>
                 <div className="btn_navbar">
                     <MdIcons.MdOutlineRefresh className="iconRefresh"></MdIcons.MdOutlineRefresh>
-                    <a href="">Refrescar</a>
+                    <a className="navbar-btn">Refrescar</a>
                 </div>
                 <div className="btn_navbar" onClick={onOpen}>
                     <MdIcons.MdDeleteForever className="iconDelete"></MdIcons.MdDeleteForever>
-                    <a href="">Eliminar</a>
+                    <a className="navbar-btn">Eliminar</a>
                 </div>
                 <Link to='/home'>
-                    <div>
+                    <div className="btn_navbar">
                         <img src={logo} className="logo-navbar"></img>
                     </div>
                 </Link>
-                <Link to='crearReportes'>
-                    <div>
+                <Link to='/reports'>
+                    <div className="btn_navbar">
                         <RiIcons.RiBug2Fill className="iconBug"></RiIcons.RiBug2Fill>
-                        <a href="">Reportar</a>
+                        <a>Reportar</a>
                     </div>
                 </Link>
-                <div>
-                    <IoIcons.IoIosHelpCircle className="iconHelp"></IoIcons.IoIosHelpCircle>
-                    <a href="/help">Ayuda</a>
-                </div>
+                <Link to='/help'>
+                    <div className="btn_navbar">
+                        <IoIcons.IoIosHelpCircle className="iconHelp"></IoIcons.IoIosHelpCircle>
+                        <a>Ayuda</a>
+                    </div>
+                </Link>
                 <div className="btn_navbar">
-                    <a href=""><BsIcons.BsFillGearFill className="iconConfig"></BsIcons.BsFillGearFill></a>
-                    <a href=""><MdIcons.MdNotificationsActive className="iconNotificacion"></MdIcons.MdNotificationsActive></a>
+                    <Link to='/home'>
+                        <a><BsIcons.BsFillGearFill className="iconConfig"></BsIcons.BsFillGearFill></a>
+                    </Link>
+                    <Link to='/home'>
+                        <a ><MdIcons.MdNotificationsActive className="iconNotificacion"></MdIcons.MdNotificationsActive></a>
+                    </Link>
                     <div className="User_Menu">
                         <Menu>
                             <MenuButton background={"transparent"} as={Button} >

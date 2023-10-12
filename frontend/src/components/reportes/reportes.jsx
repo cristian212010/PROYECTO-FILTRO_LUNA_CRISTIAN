@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import "../../assets/styles/home.css";
 import Navbar from '../navbar/navbar';
 
@@ -54,7 +55,9 @@ const Reportes = () => {
             }
           </table>
         </div>
-        <button className='btn-add'>Añadir Elementos</button>
+        <Link to='/crearReportes'>
+            <button className='btn-add'>Añadir Elementos</button>
+        </Link>
        </div> 
        </div> 
   );
