@@ -1,8 +1,8 @@
-# Frontend del Proyecto
+# Frontend del Proyecto 🚀
 
 La aplicación está desarrollada en React y utiliza varias librerías y componentes para lograr sus funcionalidades. A continuación, se detalla la estructura del proyecto y sus componentes principales.
 
-## Estructura de Directorios
+## Estructura de Directorios 📁
 
 - **src**: Este directorio contiene todo el código fuente de la aplicación.
 
@@ -14,14 +14,14 @@ La aplicación está desarrollada en React y utiliza varias librerías y compone
     - **Loader.jsx**: Una página de carga que se muestra al iniciar sesión.
     - **Reportes.jsx**: La página de reportes.
     - **Navbar.jsx**: La barra de navegación en la parte superior.
-    - **RenderAcordion.jsx**: Un componente para mostrar preguntas frecuentes en un acordeón.
+    - **RenderAccordion.jsx**: Un componente para mostrar preguntas frecuentes en un acordeón.
     - **EditUser.jsx**: La página de edición de perfil de usuario.
 
   - **assets**: Contiene archivos estáticos como imágenes y estilos.
   
 - **public**: Contiene archivos públicos como el ícono de la aplicación y el archivo HTML principal.
 
-## Componentes Principales
+## Componentes Principales 📌
 
 ### App.jsx
 
@@ -51,7 +51,7 @@ La página de reportes que permite a los usuarios crear y gestionar reportes. Mu
 
 La barra de navegación en la parte superior de la aplicación con enlaces a diferentes secciones y opciones de usuario, como cerrar sesión y editar perfil.
 
-### RenderAcordion.jsx
+### RenderAccordion.jsx
 
 Un componente que muestra preguntas frecuentes en un acordeón. Los datos de las preguntas y respuestas se definen en el propio componente.
 
@@ -59,24 +59,24 @@ Un componente que muestra preguntas frecuentes en un acordeón. Los datos de las
 
 La página de edición de perfil de usuario. Permite a los usuarios editar su información personal, como nombre, apellido, cargo y avatar.
 
-## Uso
+## Uso 🚦
 
-1. Asegúrate de tener Node.jsx y npm instalados en tu sistema.
+1. Asegúrate de tener Node.js y npm instalados en tu sistema.
 2. Clona este repositorio en tu máquina.
 3. Abre una terminal en el directorio raíz del proyecto y ejecuta `npm install` para instalar las dependencias.
 4. Luego, ejecuta `npm start` para iniciar la aplicación en modo desarrollo.
 
-## Notas Adicionales
+## Notas Adicionales 📝
 
 - La aplicación utiliza React Router para gestionar las rutas y la navegación.
 - Para la comunicación con el backend, se utilizan solicitudes HTTP a través de la librería Axios.
 - Los estilos se gestionan a través de CSS y la librería Chakra UI se utiliza para algunos componentes.
 - Se implementa la autenticación de usuarios y la gestión de sesiones.
 
-## Contribuciones
+## Contribuciones 🤝
 
 Si deseas contribuir a este proyecto, no dudes en abrir algún pull request con tus cambios. También puedes informar sobre problemas que encuentres en el proyecto.
 
-## Licencia
+## Licencia 📜
 
-Este proyecto está bajo la Licencia MIT. Consulte el archivo [LICENSE](../LICENSE) para obtener más detalles.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](../LICENSE) para obtener más detalles.
