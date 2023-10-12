@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     text-align: center;
     padding: 0.5rem 0 0.5rem 0;
 }
@@ -87,4 +87,33 @@
     font-size: 11px;
     color: #888;
     font-weight: 300;
+}
+
+@media (max-width:390px){
+    .form-login{
+        background-color: #ffffff;
+        border: 1px solid #707070;
+        border-radius: 50px;
+        opacity: 1;
+        width: 350px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        text-align: center;
+        padding: 0.5rem 0 0.5rem 0;
+    }
+
+    .input-login{
+        width: 20rem;
+        height: 2rem;
+        border-radius: 12px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #b6b6b6;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 }

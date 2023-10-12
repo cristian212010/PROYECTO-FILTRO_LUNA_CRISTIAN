@@ -90,7 +90,7 @@ table.tablita {
 }
 
 table.tablita {
-    height: 620px;
+    height: 440px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -119,4 +119,26 @@ tbody tr td:not(.descripcion) {
 
 thead tr th {
     padding: 0px 10px 0px 10px;
+}
+
+@media (max-width:1400px){
+    .tablita{
+        max-width: 1300px;
+    }
+
+    table.tablita {
+        overflow-x: scroll;
+        height: 290px;
+    }
+}
+
+@media (max-width:390px){
+    .tablita{
+        max-width: 400px;
+    }
+
+    table.tablita {
+        overflow-x: scroll;
+        height: 250px;
+    }
 }
