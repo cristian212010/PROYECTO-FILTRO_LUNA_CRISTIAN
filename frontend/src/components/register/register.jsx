@@ -146,7 +146,7 @@ const Register = () => {
                 ))}
               </select>
             </div>
-            <div className='div-input'>
+            <div className='div-input avatar-input'>
               <label>Avatar:</label>
               <input
                 type="file"

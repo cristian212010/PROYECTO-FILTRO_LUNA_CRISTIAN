@@ -4,19 +4,45 @@ import { Link } from 'react-router-dom';
 import "../../assets/styles/reportes.css";
 import Navbar from '../navbar/navbar';
 
+import { DndContext, closestCenter } from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+} from "@dnd-kit/sortable";
+
+import Carta from './card';
+
 
 const Reportes = () => {
 
   const [APIData, setAPIData] = useState([]);
-  const Avatar = localStorage.getItem("avatar");
+  
   
   useEffect(() => {
     axios.get(`http://localhost:6996/reportes/getAll`)
       .then((response) => {
-        console.log(response.data);
         setAPIData(response.data);
       })
-  })
+  },[])
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+    console.log("active", active.id);
+    console.log("over", over.id);
+
+    if (!active.id !== over.id) {
+      setAPIData((APIData) => {
+        const oldIndex = APIData.findIndex((APIData) => APIData._id === active.id);
+        const newIndex = APIData.findIndex((APIData) => APIData._id === over.id);
+
+        console.log(arrayMove(APIData, oldIndex, newIndex));
+        return arrayMove(APIData, oldIndex, newIndex);
+      });
+    }
+
+    console.log("drag end");
+  };
 
   return (
     <div>
@@ -29,30 +55,24 @@ const Reportes = () => {
           <p>Aqui puedes visualizar los Reportes ocurridos y los añadidos Recientemente por tu equipo de trabajo.</p>
         </div>
         <div className='cardContainer'>
+          <DndContext
+              collisionDetection={closestCenter}
+              onDragEnd={handleDragEnd}
+            >
+            <SortableContext
+            items={APIData}
+            strategy={verticalListSortingStrategy}
+            >
+
             {
               APIData.map((data) => {
-                return (
-                  
-                  <div className="card">
-                    <div className="img"><img src={Avatar} alt="" /></div>
-                    <span>Fecha Reporte <hr/>
-                    {data.fecha_reporte}</span>
-                    <p className="info">
-                      Indicador: {data.indicador[0].indicador}
-                    </p>
-                    <p className="info">
-                      Problema: {data.problema}
-                    </p>
-
-                    <div className='infoUser'>
-                      Reprotado por: <hr/>
-                      {data.documentalista[0].nombre} {data.documentalista[0].apellido}
-                    </div>
-                  </div>
-              
-                )
+                return(
+                  <Carta key={data._id} data={data}></Carta>
+                )  
               })
             }
+            </SortableContext>
+            </DndContext>
         </div>
         <Link to='/crearReportes'>
             <button className='btn-add'>Añadir Elementos</button>

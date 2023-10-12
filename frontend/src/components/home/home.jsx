@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import '../../assets/styles/home.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
-import * as GiIcons from 'react-icons/gi'
 import Navbar from '../navbar/navbar';
+import { DndContext, closestCenter } from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+} from "@dnd-kit/sortable";
+import Tbodie from './Tbodie';
 
 const Home = () => {
   const [APIData, setAPIData] = useState([]);
@@ -14,7 +19,25 @@ const Home = () => {
       .then((response) => {
         setAPIData(response.data);
       })
-  })
+  },[])
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+    console.log("active", active.id);
+    console.log("over", over.id);
+
+    if (!active.id !== over.id) {
+      setAPIData((APIData) => {
+        const oldIndex = APIData.findIndex((APIData) => APIData._id === active.id);
+        const newIndex = APIData.findIndex((APIData) => APIData._id === over.id);
+
+        console.log(arrayMove(APIData, oldIndex, newIndex));
+        return arrayMove(APIData, oldIndex, newIndex);
+      });
+    }
+
+    console.log("drag end");
+  };
 
   return (
     <div>
@@ -27,6 +50,10 @@ const Home = () => {
           <p>Aqui puedes visualizar los indicadores propuestos y añadidos por tu equipo de trabajo. Si quieres ver más detalles , dale click a uno de ellos para más información.</p>
         </div>
         <div>
+        <DndContext
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
+        >
           <table class="tablita">
             <thead>
               <tr>
@@ -42,32 +69,20 @@ const Home = () => {
                 <th></th>
               </tr>
             </thead>
+            <SortableContext
+            items={APIData}
+            strategy={verticalListSortingStrategy}
+            >
             {
               APIData.map((data) => {
                 return (
-                  <tbody>
-                    <tr className='filas'>
-                      <td>{data.indicador}</td>
-                      <td className="descripcion">{data.descripcion}</td>
-                      <td>{data.categoria}</td>
-                      <td>{data.fecha_inicio}</td>
-                      <td>{data.fecha_fin}</td>
-                      <td>{data.formula}</td>
-                      <td>{data.frecuencia}</td>
-                      <td> <CircularProgress value={data.cumplimiento} color={data.cumplimiento < 50 ? "red" : (data.cumplimiento >= 50 && data.cumplimiento <= 75) ? "orange" : "green"}><CircularProgressLabel><p className='porcentaje'><strong>{data.cumplimiento}%</strong></p></CircularProgressLabel> </CircularProgress></td>
-                      <td>{data.area[0].nombre}</td>
-                      <div className='icon'>
-                        <GiIcons.GiHamburgerMenu></GiIcons.GiHamburgerMenu>
-                      </div>
-                    </tr>
-                    <tr className="spacer">
-                      <td colspan="100"></td>
-                    </tr>
-                  </tbody>
+                  <Tbodie key={data._id} data={data}></Tbodie>
                 )
               })
             }
+            </SortableContext>
           </table>
+          </DndContext>
         </div>
         <Link to='/crearIndicadores'>
           <button className='btn-add'>Añadir Elementos</button>
