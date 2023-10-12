@@ -1,4 +1,4 @@
-# Frontend del Proyecto
+# Backend del Proyecto
 
 A continuación, encontrarás información detallada sobre los archivos, las rutas y los controladores del backend.
 
