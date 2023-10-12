@@ -102,16 +102,6 @@ const Navbar = () => {
                     <MdIcons.MdDeleteForever className="iconDelete"></MdIcons.MdDeleteForever>
                     <a href="">Eliminar</a>
                 </div>
-                <div className="btn_navbar">
-                    <a href="/home"><img src={logo} className="logo-navbar"></img></a>
-                </div>
-                <div className="btn_navbar">
-                    <RiIcons.RiBug2Fill className="iconBug"></RiIcons.RiBug2Fill>
-                    <a href="/reports">Reportar</a>
-                </div>
-                <div className="btn_navbar">
-                    <a>Eliminar</a>
-                </div>
                 <Link to='/home'>
                     <div>
                         <img src={logo} className="logo-navbar"></img>
