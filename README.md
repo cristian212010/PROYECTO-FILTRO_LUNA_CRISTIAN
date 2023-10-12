@@ -15,7 +15,7 @@ Para configurar el proyecto, sigue estos pasos:
 1. **Clonar el Repositorio**:
 
    ```bash
-   git clone https://github.com/cristian212010/PROYECTO-FILTRO_GRUPO2
+   git clone https://github.com/cristian212010/PROYECTO-FILTRO_LUNA_CRISTIAN.git
    ```
 
 2. **Backend:**
@@ -91,7 +91,10 @@ El proyecto abarca los siguientes componentes y funcionalidades:
 
 ## 🔧 Dependencias del Frontend
 
+- `axios` ^1.5.1
 - `bootstrap` ^5.3.2
+- `framer-motion` ^10.16.4
+- `react` ^18.2.0
 - `react-dom` ^18.2.0
 - `react-icons` ^4.11.0
 - `react-router-dom` ^5.3.4
@@ -121,6 +124,9 @@ PROYECTO-FILTRO_GRUPO2/
 │   ├── .env
 │   ├── package.json
 │   ├── README.md
+│
+├── Documentation/
+│   ├── Imgs/
 │
 ├── Frontend/
 │   │
@@ -160,10 +166,10 @@ PROYECTO-FILTRO_GRUPO2/
 ## 📸 Capturas de Pantalla
 
 - **Login**
-  - ![Captura de Home](screenshot1.png)
+  - ![Captura de Home](/Documentation/Imgs/Login.png)
 
 - **Home**
-  - ![Captura de Home](screenshot1.png)
+  - ![Captura de Home](/Documentation/Imgs/Home.png)
 
 ## 🙌 Contribuidores
 
