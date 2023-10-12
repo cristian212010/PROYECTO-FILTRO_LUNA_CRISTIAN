@@ -145,6 +145,12 @@ const Register = () => {
                 ))}
               </select>
             </div>
+            <input
+                type="file"
+                accept="image/*"
+                onChange={avatarChange}
+                className='input-login'
+              />
             <button type="submit" className='btn-login'>Registrar</button>
           </form>
           <p className='p-registrar'>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
