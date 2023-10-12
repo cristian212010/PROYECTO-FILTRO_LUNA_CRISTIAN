@@ -85,3 +85,11 @@
 .navbar-btn{
     cursor: pointer;
 }
+
+@media (max-width:390px){
+    .menu-header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
