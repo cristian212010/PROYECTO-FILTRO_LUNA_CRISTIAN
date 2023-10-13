@@ -145,7 +145,7 @@ const Navbar = () => {
 
     const logOut = () => {
         localStorage.removeItem('token');
-        window.location.href = '/login';
+        window.location.href = '/loaderInicio';
     };
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);

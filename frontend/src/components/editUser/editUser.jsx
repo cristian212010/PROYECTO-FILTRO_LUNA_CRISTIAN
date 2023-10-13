@@ -114,6 +114,7 @@ const EditUser = () => {
 
       history.push('/home');
     } catch (error) {
+      history.push('/home');
       console.error('Error al actualizar los datos del usuario:', error);
       setMensajeError('Error al actualizar los datos del usuario');
     }

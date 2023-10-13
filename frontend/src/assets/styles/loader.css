@@ -12,6 +12,7 @@
     gap: 20px;
     text-align: center;
     padding: 0.5rem 0 0.5rem 0;
+    animation: aparecer 2s;
 }
 .avatarr{
     width: 7.5rem;

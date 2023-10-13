@@ -11,13 +11,13 @@
 
 .logo-navbar {
     width: 30px;
+    padding-top: 6px;
 }
 
 .menu-header .btn_navbar {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-
+    flex-direction: row; 
+    text-align: center;
 }
 
 .menu-header div{
@@ -50,15 +50,17 @@
 .iconBug {
     font-size: 1.9rem;
     color: #FF6F2C;
+    margin-top: 4px;
     margin-right: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 
 .iconHelp {
     font-size: 1.9rem;
     color: #FF6F2C;
+    margin-top: 4px;
     margin-right: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 
 .iconNotificacion {
@@ -84,6 +86,10 @@
 
 .navbar-btn{
     cursor: pointer;
+}
+
+.btn_navbar a{
+    padding-top: 3px;
 }
 
 @media (max-width:390px){

@@ -31,6 +31,7 @@
     gap: 10px;
     text-align: center;
     padding: 0.5rem 0 0.5rem 0;
+    animation: aparecer 2s;
 }
 
 .logo-login{
@@ -121,5 +122,14 @@
         border-color: #b6b6b6;
         padding: 10px;
         margin-bottom: 10px;
+    }
+}
+
+@keyframes aparecer{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
